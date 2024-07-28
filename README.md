@@ -6,9 +6,8 @@ The Gym Tracker is a mobile application that allows users to track the usage of 
 
 1. **NFC Tag Scanning**: Easily log workouts by scanning NFC tags attached to gym equipment.
 2. **Workout Logging**: Track the usage of each piece of equipment, including duration and frequency.
-3. **Exercise Instructions**: Access detailed exercise instructions and tips for using the equipment safely and effectively.
+3. **Equipment Details**: Access detailed equipment information, exercise instructions and tips for using the equipment safely and effectively.
 4. **Maintenance Tracking**: View maintenance schedules and report equipment issues.
-5. **User Profiles**: Manage user profiles and track individual workout progress.
 
 ## Installation
 
@@ -20,11 +19,14 @@ To set up the project locally, follow these steps:
 
 ## Usage
 
-1. **Launch the app**: Open the app on your Android device.
-2. **Login/Register**: Use your details to create an account.
-3. **Scan NFC tags**: Approach a tagged piece of gym equipment and scan the NFC tag to log your workout.
-4. **View exercise instructions**: Access detailed instructions on how to use the equipment.
+1. **Scan NFC tags**: Approach a tagged piece of gym equipment and scan the NFC tag to log your workout.
+2. **View equipment details**: Access detailed information about teh equipment as well as instructions on how to use the equipment.
+3. **Log Workout**: This shows information about the duration, type of exercise, weight and number of reps.
 5. **Check maintenance status**: View the maintenance schedule or report any issues with the equipment.
+
+## Screenshots
+<img width="188" alt="Log Workout Screen" src="https://github.com/user-attachments/assets/309b8df9-d17a-45f4-8ad9-ba75af15ae30">
+
 
 ## Contributing
 
@@ -35,5 +37,4 @@ We welcome contributions from the community! To contribute:
 3. **Make and commit your changes**: `git commit -m 'Add some feature'`.
 4. **Push to the branch**: `git push origin feature-branch-name`.
 5. **Submit a pull request**.
-6. **Submit a pull request**.
 

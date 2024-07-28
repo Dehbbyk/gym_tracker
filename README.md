@@ -4,8 +4,8 @@ The Gym Tracker is a mobile application that allows users to track the usage of 
 
 # Features
 
-1. *NFC Tag Scanning*: Easily log workouts by scanning NFC tags attached to gym equipment.
-2. *Workout Logging*: Track the usage of each piece of equipment, including duration and frequency.
+1. **NFC Tag Scanning**: Easily log workouts by scanning NFC tags attached to gym equipment.
+2. **Workout Logging**: Track the usage of each piece of equipment, including duration and frequency.
 3. **Exercise Instructions**: Access detailed exercise instructions and tips for using the equipment safely and effectively.
 4. **Maintenance Tracking**: View maintenance schedules and report equipment issues.
 5. **User Profiles**: Manage user profiles and track individual workout progress.

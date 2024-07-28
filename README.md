@@ -35,4 +35,5 @@ We welcome contributions from the community! To contribute:
 3. **Make and commit your changes**: `git commit -m 'Add some feature'`.
 4. **Push to the branch**: `git push origin feature-branch-name`.
 5. **Submit a pull request**.
+6. **Submit a pull request**.
 

@@ -4,19 +4,37 @@ import 'package:gym_tracker/ui/views/home/home_view.dart';
 import 'package:gym_tracker/ui/views/startup/startup_view.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
+import 'package:gym_tracker/ui/views/sign_in/sign_in_view.dart';
+import 'package:gym_tracker/ui/views/sign_up/sign_up_view.dart';
+import 'package:gym_tracker/services/nfc_service.dart';
+import 'package:gym_tracker/ui/views/nfc/nfc_view.dart';
+import 'package:gym_tracker/ui/views/equipment_detail/equipment_detail_view.dart';
+import 'package:gym_tracker/ui/views/log_workout/log_workout_view.dart';
+import 'package:gym_tracker/ui/views/logged_workout/logged_workout_view.dart';
+import 'package:gym_tracker/ui/views/maintaince_history/maintaince_history_view.dart';
+import 'package:gym_tracker/ui/views/report_issues/report_issues_view.dart';
 // @stacked-import
 
 @StackedApp(
   routes: [
     MaterialRoute(page: HomeView),
     MaterialRoute(page: StartupView),
-    // @stacked-route
+    MaterialRoute(page: SignInView),
+    MaterialRoute(page: SignUpView),
+    MaterialRoute(page: NfcView),
+    MaterialRoute(page: EquipmentDetailView),
+    MaterialRoute(page: LogWorkoutView),
+    MaterialRoute(page: LoggedWorkoutView),
+    MaterialRoute(page: MaintainceHistoryView),
+    MaterialRoute(page: ReportIssuesView),
+// @stacked-route
   ],
   dependencies: [
     LazySingleton(classType: BottomSheetService),
     LazySingleton(classType: DialogService),
     LazySingleton(classType: NavigationService),
-    // @stacked-service
+    LazySingleton(classType: NfcService),
+// @stacked-service
   ],
   bottomsheets: [
     StackedBottomsheet(classType: NoticeSheet),

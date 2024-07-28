@@ -7,6 +7,7 @@ import 'dart:async' as _i5;
 import 'dart:ui' as _i6;
 
 import 'package:flutter/material.dart' as _i4;
+import 'package:gym_tracker/services/nfc_service.dart' as _i7;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:mockito/src/dummies.dart' as _i3;
 import 'package:stacked_services/stacked_services.dart' as _i2;
@@ -666,6 +667,93 @@ class MockDialogService extends _i1.Mock implements _i2.DialogService {
         Invocation.method(
           #completeDialog,
           [response],
+        ),
+        returnValueForMissingStub: null,
+      );
+}
+
+/// A class which mocks [NfcService].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockNfcService extends _i1.Mock implements _i7.NfcService {
+  @override
+  bool get isProcessing => (super.noSuchMethod(
+        Invocation.getter(#isProcessing),
+        returnValue: false,
+        returnValueForMissingStub: false,
+      ) as bool);
+
+  @override
+  String get message => (super.noSuchMethod(
+        Invocation.getter(#message),
+        returnValue: _i3.dummyValue<String>(
+          this,
+          Invocation.getter(#message),
+        ),
+        returnValueForMissingStub: _i3.dummyValue<String>(
+          this,
+          Invocation.getter(#message),
+        ),
+      ) as String);
+
+  @override
+  int get listenersCount => (super.noSuchMethod(
+        Invocation.getter(#listenersCount),
+        returnValue: 0,
+        returnValueForMissingStub: 0,
+      ) as int);
+
+  @override
+  _i5.Future<void> startNFCOperation({
+    required _i7.NFCOperation? nfcOperation,
+    Map<String, String>? data,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #startNFCOperation,
+          [],
+          {
+            #nfcOperation: nfcOperation,
+            #data: data,
+          },
+        ),
+        returnValue: _i5.Future<void>.value(),
+        returnValueForMissingStub: _i5.Future<void>.value(),
+      ) as _i5.Future<void>);
+
+  @override
+  void listenToReactiveValues(List<dynamic>? reactiveValues) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #listenToReactiveValues,
+          [reactiveValues],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void addListener(void Function()? listener) => super.noSuchMethod(
+        Invocation.method(
+          #addListener,
+          [listener],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void removeListener(void Function()? listener) => super.noSuchMethod(
+        Invocation.method(
+          #removeListener,
+          [listener],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void notifyListeners() => super.noSuchMethod(
+        Invocation.method(
+          #notifyListeners,
+          [],
         ),
         returnValueForMissingStub: null,
       );

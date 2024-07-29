@@ -24,32 +24,23 @@ class DashboardView extends StackedView<DashboardViewModel> {
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              'assets/icons/Barbell.svg',
-            ),
-            label: 'Workout',
+            icon: Icon(Icons.dashboard),
+            label: 'Details',
           ),
           BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              'assets/icons/Scan.svg',
-            ),
+            icon: Icon(Icons.document_scanner),
             label: 'Scan NFC',
           ),
           BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              'assets/icons/ChartLineUp.svg',
-            ),
+            icon: Icon(Icons.fitness_center_rounded),
             label: 'Report',
           ),
           BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              'assets/icons/ClockCounterClockwise.svg',
-            ),
+            icon: Icon(Icons.directions_run),
             label: 'History',
           ),
         ],
         selectedItemColor: kcPrimaryColor,
-
         showUnselectedLabels: true,
         unselectedItemColor: const Color(0xff85858B),
         unselectedLabelStyle: const TextStyle(color: Color(0xff85858B)),

@@ -5,6 +5,7 @@ import 'package:gym_tracker/ui/views/all_workout/all_workout_view.dart';
 import 'package:gym_tracker/ui/views/equipment_detail/equipment_detail_view.dart';
 import 'package:gym_tracker/ui/views/home/home_view.dart';
 import 'package:gym_tracker/ui/views/logged_workout/logged_workout_view.dart';
+import 'package:gym_tracker/ui/views/maintenance/maintenance_view.dart';
 import 'package:gym_tracker/ui/views/nfc/nfc_view.dart';
 import 'package:stacked/stacked.dart';
 
@@ -13,11 +14,8 @@ class DashboardViewModel extends ReactiveViewModel {
   final List<Widget> widgetOptions = <Widget>[
     const EquipmentDetailView(),
     const NfcView(),
-    Container(
-      color: Colors.blue,
-      child: const Center(child: Text("Report flow")),
-    ),
-    AllWorkoutView(),
+    const MaintenanceView(),
+   const AllWorkoutView(),
   ];
 
   int get selectedIndex => _appService.selectedIndex;

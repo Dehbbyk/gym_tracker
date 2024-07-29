@@ -35,7 +35,7 @@ class LogWorkoutView extends StackedView<LogWorkoutViewModel> {
       ),
       backgroundColor: Theme.of(context).colorScheme.background,
       body: Container(
-        padding: const EdgeInsets.all(30),
+        padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -46,7 +46,7 @@ class LogWorkoutView extends StackedView<LogWorkoutViewModel> {
                   fontSize: 20,
                   color: Colors.grey),
             ),
-            SizedBox(height: 25),
+            SizedBox(height: 20),
             Text(
               'Duration',
               style: TextStyle(
@@ -64,7 +64,7 @@ class LogWorkoutView extends StackedView<LogWorkoutViewModel> {
               ),
               onChanged: viewModel.setDuration,
             ),
-            SizedBox(height: 15),
+            SizedBox(height: 10),
             Text(
               'Type of Exercise',
               style: TextStyle(
@@ -83,9 +83,9 @@ class LogWorkoutView extends StackedView<LogWorkoutViewModel> {
               ),
               onChanged: viewModel.setTypeOfExercise,
             ),
-            SizedBox(height: 15),
+            SizedBox(height: 10),
             Text(
-              'Size',
+              'Weight',
               style: TextStyle(
                 fontWeight: FontWeight.w400,
                 fontSize: 16,
@@ -101,7 +101,7 @@ class LogWorkoutView extends StackedView<LogWorkoutViewModel> {
               ),
               onChanged: viewModel.setSize,
             ),
-            SizedBox(height: 15),
+            SizedBox(height: 10),
             Text(
               'Repetition',
               style: TextStyle(
@@ -119,7 +119,7 @@ class LogWorkoutView extends StackedView<LogWorkoutViewModel> {
               ),
               onChanged: viewModel.setRepetition,
             ),
-            SizedBox(height: 25),
+            SizedBox(height: 20),
             SizedBox(
               width: double.infinity,
               child: TextButton(

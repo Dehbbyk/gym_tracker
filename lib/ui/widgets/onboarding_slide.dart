@@ -37,7 +37,6 @@ class OnboardingSlide extends StatelessWidget {
             style: const TextStyle(
                 fontWeight: FontWeight.w400, fontSize: 18, color: kcTextColor2),
             textAlign: TextAlign.center,
-
           ),
         ),
       ],

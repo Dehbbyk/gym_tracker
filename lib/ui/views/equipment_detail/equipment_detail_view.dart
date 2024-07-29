@@ -14,8 +14,11 @@ class EquipmentDetailView extends StackedView<EquipmentDetailViewModel> {
   ) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
-      body: Container(
-        padding: const EdgeInsets.only(left: 25.0, right: 25.0),
+      body: Center(
+        child: Container(
+          padding: const EdgeInsets.only(left: 25.0, right: 25.0),
+          child: const Text("Equipment Detail View"),
+        ),
       ),
     );
   }

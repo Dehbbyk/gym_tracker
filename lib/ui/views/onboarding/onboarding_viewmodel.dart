@@ -19,11 +19,13 @@ class OnboardingViewModel extends BaseViewModel {
     const OnboardingModel(
         onboardingImgUrl: "assets/images/onboarding_img1.png",
         onboardingTitle: "Access equipment guide",
-        onboardingDescription: "View detailed instructions and videos for each equipment."),
+        onboardingDescription:
+            "View detailed instructions and videos for each equipment."),
     const OnboardingModel(
         onboardingImgUrl: "assets/images/onboarding_img3.png",
         onboardingTitle: "Track Your Progress",
-        onboardingDescription: "Keep a detailed log of your exercises and monitor your improvements over time.")
+        onboardingDescription:
+            "Keep a detailed log of your exercises and monitor your improvements over time.")
   ];
 
   void changeNote(int index) {
@@ -36,11 +38,11 @@ class OnboardingViewModel extends BaseViewModel {
       noteIndex++;
       notifyListeners();
     } else {
-      _navigationService.navigateTo(Routes.homeView);
+      _navigationService.navigateTo(Routes.dashboardView);
     }
   }
 
-  void skip (){
-    _navigationService.navigateTo(Routes.homeView);
+  void skip() {
+    _navigationService.navigateTo(Routes.dashboardView);
   }
 }

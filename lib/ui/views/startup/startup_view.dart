@@ -19,11 +19,20 @@ class StartupView extends StackedView<StartupViewModel> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Image(image: AssetImage("assets/images/gym_tracker_logo.png"), height: 100,width: 100,),
-            SizedBox(height: 25,),
+            Image(
+              image: AssetImage("assets/images/gym_tracker_logo.png"),
+              height: 100,
+              width: 100,
+            ),
+            SizedBox(
+              height: 25,
+            ),
             Text(
               'Gym Tracker',
-              style: TextStyle(fontSize: 54, fontWeight: FontWeight.w700 , ),
+              style: TextStyle(
+                fontSize: 54,
+                fontWeight: FontWeight.w700,
+              ),
             ),
           ],
         ),

@@ -7,10 +7,10 @@ class LoggedWorkoutView extends StackedView<LoggedWorkoutViewModel> {
 
   @override
   Widget builder(
-      BuildContext context,
-      LoggedWorkoutViewModel viewModel,
-      Widget? child,
-      ) {
+    BuildContext context,
+    LoggedWorkoutViewModel viewModel,
+    Widget? child,
+  ) {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -22,10 +22,7 @@ class LoggedWorkoutView extends StackedView<LoggedWorkoutViewModel> {
         title: Center(
           child: Text(
             'Logged Workout',
-            style: TextStyle(
-                fontWeight: FontWeight.w500,
-                fontSize: 16
-            ),
+            style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
           ),
         ),
         actions: [
@@ -69,26 +66,34 @@ class LoggedWorkoutView extends StackedView<LoggedWorkoutViewModel> {
                   children: [
                     Row(
                       children: [
-                        Text('Type', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500)),
-                        SizedBox(width:5),
+                        Text('Type',
+                            style: TextStyle(
+                                fontSize: 12, fontWeight: FontWeight.w500)),
+                        SizedBox(width: 5),
                         Icon(Icons.help_outline_outlined, size: 16),
                       ],
                     ),
                     Row(
                       children: [
                         Icon(Icons.timer_sharp, size: 16),
-                        SizedBox(width:5),
-                        Text('Set', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500)),
+                        SizedBox(width: 5),
+                        Text('Set',
+                            style: TextStyle(
+                                fontSize: 12, fontWeight: FontWeight.w500)),
                       ],
                     ),
                     Row(
                       children: [
                         Icon(Icons.calendar_month, size: 16),
-                        SizedBox(width:5),
-                        Text('Date', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500)),
+                        SizedBox(width: 5),
+                        Text('Date',
+                            style: TextStyle(
+                                fontSize: 12, fontWeight: FontWeight.w500)),
                       ],
                     ),
-                    Text('More', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500)),
+                    Text('More',
+                        style: TextStyle(
+                            fontSize: 12, fontWeight: FontWeight.w500)),
                   ],
                 ),
               ],
@@ -140,7 +145,7 @@ class LoggedWorkoutView extends StackedView<LoggedWorkoutViewModel> {
 
   @override
   LoggedWorkoutViewModel viewModelBuilder(
-      BuildContext context,
-      ) =>
+    BuildContext context,
+  ) =>
       LoggedWorkoutViewModel();
 }

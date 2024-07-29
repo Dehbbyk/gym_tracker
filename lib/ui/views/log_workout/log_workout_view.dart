@@ -8,10 +8,10 @@ class LogWorkoutView extends StackedView<LogWorkoutViewModel> {
 
   @override
   Widget builder(
-      BuildContext context,
-      LogWorkoutViewModel viewModel,
-      Widget? child,
-      ) {
+    BuildContext context,
+    LogWorkoutViewModel viewModel,
+    Widget? child,
+  ) {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(

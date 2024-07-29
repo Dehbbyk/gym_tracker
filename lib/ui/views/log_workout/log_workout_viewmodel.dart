@@ -35,10 +35,14 @@ class LogWorkoutViewModel extends BaseViewModel {
 
   // Validation method
   bool validateInputs() {
-    return _duration != null && _duration!.isNotEmpty &&
-        _typeOfExercise != null && _typeOfExercise!.isNotEmpty &&
-        _size != null && _size!.isNotEmpty &&
-        _repetition != null && _repetition!.isNotEmpty;
+    return _duration != null &&
+        _duration!.isNotEmpty &&
+        _typeOfExercise != null &&
+        _typeOfExercise!.isNotEmpty &&
+        _size != null &&
+        _size!.isNotEmpty &&
+        _repetition != null &&
+        _repetition!.isNotEmpty;
   }
 
   // Method to save the workout data
@@ -46,7 +50,8 @@ class LogWorkoutViewModel extends BaseViewModel {
     if (validateInputs()) {
       // Logic to save workout, e.g., sending data to a backend or local storage
       // For now, we'll just print the data
-      print('Workout saved: Duration - $_duration, Type of Exercise - $_typeOfExercise, Size - $_size, Repetition - $_repetition');
+      print(
+          'Workout saved: Duration - $_duration, Type of Exercise - $_typeOfExercise, Size - $_size, Repetition - $_repetition');
     } else {
       print('Invalid input');
     }

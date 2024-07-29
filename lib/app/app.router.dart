@@ -234,7 +234,7 @@ class StackedRouter extends _i1.RouterBase {
     },
     _i15.WorkoutDetailsView: (data) {
       return _i18.MaterialPageRoute<dynamic>(
-        builder: (context) => const _i15.WorkoutDetailsView(),
+        builder: (context) => const _i15.WorkoutDetailsView(workout: null),
         settings: data,
       );
     },

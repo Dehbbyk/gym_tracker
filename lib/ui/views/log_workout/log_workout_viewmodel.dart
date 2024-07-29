@@ -28,7 +28,7 @@ class LogWorkoutViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-  void setRepetition(String value) {
+  void setDate(String value) {
     _repetition = value;
     notifyListeners();
   }
@@ -45,7 +45,6 @@ class LogWorkoutViewModel extends BaseViewModel {
   void saveWorkout() {
     if (validateInputs()) {
       // Logic to save workout, e.g., sending data to a backend or local storage
-      // For now, we'll just print the data
       print('Workout saved: Duration - $_duration, Type of Exercise - $_typeOfExercise, Size - $_size, Repetition - $_repetition');
     } else {
       print('Invalid input');

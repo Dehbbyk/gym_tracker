@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'logged_workout_viewmodel.dart';
 
-class LoggedWorkoutView extends StackedView<LoggedWorkoutViewModel> {
+class LoggedWorkoutView extends StackedView<loggedWorkoutViewModel> {
   const LoggedWorkoutView({Key? key}) : super(key: key);
 
   @override
@@ -51,7 +51,7 @@ class LoggedWorkoutView extends StackedView<LoggedWorkoutViewModel> {
                 ),
               ),
             ),
-            SizedBox(height: 15),
+            SizedBox(height: 10),
             Text(
               'Preview your logged workout',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
@@ -70,22 +70,19 @@ class LoggedWorkoutView extends StackedView<LoggedWorkoutViewModel> {
                     Row(
                       children: [
                         Text('Type', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500)),
-                        SizedBox(width:5),
                         Icon(Icons.help_outline_outlined, size: 16),
                       ],
                     ),
                     Row(
                       children: [
-                        Icon(Icons.timer_sharp, size: 16),
-                        SizedBox(width:5),
                         Text('Set', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500)),
+                        Icon(Icons.timer_sharp, size: 16),
                       ],
                     ),
                     Row(
                       children: [
-                        Icon(Icons.calendar_month, size: 16),
-                        SizedBox(width:5),
                         Text('Date', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500)),
+                        Icon(Icons.calendar_month, size: 16),
                       ],
                     ),
                     Text('More', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500)),

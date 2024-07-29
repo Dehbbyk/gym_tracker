@@ -91,7 +91,7 @@ class StackedRouter extends _i1.RouterBase {
     ),
     _i1.RouteDef(
       Routes.loggedWorkoutView,
-      page: _i9.LoggedWorkoutView,
+      // page: _i9.LoggedWorkoutView,
     ),
     _i1.RouteDef(
       Routes.maintainceHistoryView,

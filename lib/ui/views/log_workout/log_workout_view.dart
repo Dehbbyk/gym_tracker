@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
-
 import 'log_workout_viewmodel.dart';
 
 class LogWorkoutView extends StackedView<LogWorkoutViewModel> {
@@ -30,187 +29,143 @@ class LogWorkoutView extends StackedView<LogWorkoutViewModel> {
           IconButton(
             onPressed: () {},
             icon: Icon(Icons.notifications_none),
-          ),
+          )
         ],
       ),
       backgroundColor: Theme.of(context).colorScheme.background,
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Enter your Workout Details',
-                style: TextStyle(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Enter your Workout Details',
+              style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 20,
+                  color: Colors.grey),
+            ),
+            SizedBox(height: 20),
+            Text(
+              'Duration',
+              style: TextStyle(
+                fontWeight: FontWeight.w400,
+                fontSize: 16,
+              ),
+            ),
+            SizedBox(height: 6),
+            TextField(
+              decoration: InputDecoration(
+                hintText: 'Enter the duration',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+              ),
+              onChanged: viewModel.setDuration,
+            ),
+            SizedBox(height: 10),
+            Text(
+              'Type of Exercise',
+              style: TextStyle(
+                fontWeight: FontWeight.w400,
+                fontSize: 16,
+              ),
+            ),
+            SizedBox(height: 6),
+            TextField(
+              decoration: InputDecoration(
+                hintText: 'Enter the type of workout',
+                suffixIcon: Icon(Icons.remove_red_eye_outlined),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+              ),
+              onChanged: viewModel.setTypeOfExercise,
+            ),
+            SizedBox(height: 10),
+            Text(
+              'Set',
+              style: TextStyle(
+                fontWeight: FontWeight.w400,
+                fontSize: 16,
+              ),
+            ),
+            SizedBox(height: 6),
+            TextField(
+              decoration: InputDecoration(
+                hintText: 'Enter the set',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+              ),
+              onChanged: viewModel.setSize,
+            ),
+            SizedBox(height: 10),
+            Text(
+              'Date',
+              style: TextStyle(
+                fontWeight: FontWeight.w400,
+                fontSize: 16,
+              ),
+            ),
+            SizedBox(height: 6),
+            TextField(
+              decoration: InputDecoration(
+                hintText: 'Enter the date',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+              ),
+              onChanged: viewModel.setRepetition,
+            ),
+            SizedBox(height: 20),
+            SizedBox(
+              width: double.infinity,
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  backgroundColor: Colors.orange,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5.0)),
+                ),
+                onPressed: viewModel.saveWorkout,
+                child: Text(
+                  'Save Workout',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.white,
                     fontWeight: FontWeight.w500,
-                    fontSize: 20,
-                    color: Colors.grey),
-              ),
-              SizedBox(height: 20),
-              Text(
-                'Duration',
-                style: TextStyle(
-                  fontWeight: FontWeight.w400,
-                  fontSize: 16,
-                ),
-              ),
-              SizedBox(height: 6),
-              TextField(
-                decoration: InputDecoration(
-                  hintText: 'Enter the duration',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                ),
-                onChanged: viewModel.setDuration,
-              ),
-              SizedBox(height: 10),
-              Text(
-                'Type of Exercise',
-                style: TextStyle(
-                  fontWeight: FontWeight.w400,
-                  fontSize: 16,
-                ),
-              ),
-              SizedBox(height: 6),
-              TextField(
-                decoration: InputDecoration(
-                  hintText: 'Enter the type of workout',
-                  suffixIcon: Icon(Icons.remove_red_eye_outlined),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                ),
-                onChanged: viewModel.setTypeOfExercise,
-              ),
-              SizedBox(height: 10),
-              Text(
-                'Set',
-                style: TextStyle(
-                  fontWeight: FontWeight.w400,
-                  fontSize: 16,
-                ),
-              ),
-              SizedBox(height: 6),
-              TextField(
-                decoration: InputDecoration(
-                  hintText: 'Enter the set',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                ),
-                onChanged: viewModel.setSize,
-              ),
-              SizedBox(height: 10),
-              Text(
-                'Date',
-                style: TextStyle(
-                  fontWeight: FontWeight.w400,
-                  fontSize: 16,
-                ),
-              ),
-              SizedBox(height: 6),
-              TextField(
-                decoration: InputDecoration(
-                  hintText: 'Enter the date',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                ),
-                onChanged: viewModel.setDate,
-              ),
-              SizedBox(height: 20),
-              SizedBox(
-                width: double.infinity,
-                child: TextButton(
-                  style: TextButton.styleFrom(
-                    backgroundColor: Colors.orange,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5.0)),
-                  ),
-                  onPressed: () {
-                    if (viewModel.validateInputs()) {
-                      viewModel.saveWorkout();
-                      showDialog(
-                        context: context,
-                        builder: (context) {
-                          return AlertDialog(
-                            content: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Image.asset('assets/images/success.png', height: 100),
-                                SizedBox(height: 20),
-                                Text(
-                                  'Log workout saved',
-                                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
-                                ),
-                                SizedBox(height: 10),
-                                Text(
-                                  'Well-done you log workout has been saved.',
-                                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
-                                ),
-                                SizedBox(height: 20),
-                                ElevatedButton(
-                                  style: TextButton.styleFrom(
-                                    backgroundColor: Colors.orange,
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(5.0)),
-                                  ),
-                                  onPressed: () {
-                                    Navigator.pop(context);
-                                    // Navigate to Workout History or other actions
-                                  },
-                                  child: Text(
-                                      'Go to Workout History',
-                                    style: TextStyle(
-                                      color: Colors.white
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          );
-                        },
-                      );
-                    } else {
-                      // Show a message or dialog indicating missing fields
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text('Please fill in all fields.')),
-                      );
-                    }
-                  },
-                  child: Text(
-                    'Save Workout',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w500,
-                    ),
                   ),
                 ),
               ),
-              SizedBox(height: 6),
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  style: TextButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5.0)),
-                  ),
-                  onPressed: () {},
-                  child: Text(
-                    'View Maintenance Report',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.grey,
-                      fontWeight: FontWeight.w500,
-                    ),
+            ),
+            SizedBox(height: 6),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                style: TextButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5.0)),
+                ),
+                onPressed: viewModel.writeToNfcTag,
+                child: Text(
+                  'Save to NFC Tag',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.grey,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
               ),
-            ],
-          ),
+            ),
+            if (viewModel.nfcStatus.isNotEmpty)
+              Padding(
+                padding: const EdgeInsets.only(top: 16.0),
+                child: Text(
+                  viewModel.nfcStatus,
+                  style: TextStyle(color: Colors.red),
+                ),
+              ),
+          ],
         ),
       ),
     );

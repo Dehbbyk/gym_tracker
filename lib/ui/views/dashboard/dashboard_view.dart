@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:gym_tracker/ui/common/app_colors.dart';
 import 'package:stacked/stacked.dart';
 
@@ -22,7 +21,7 @@ class DashboardView extends StackedView<DashboardViewModel> {
         children: viewModel.widgetOptions,
       ),
       bottomNavigationBar: BottomNavigationBar(
-        items: <BottomNavigationBarItem>[
+        items: const <BottomNavigationBarItem>  [
           BottomNavigationBarItem(
             icon: Icon(Icons.dashboard),
             label: 'Details',
@@ -33,11 +32,11 @@ class DashboardView extends StackedView<DashboardViewModel> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.fitness_center_rounded),
-            label: 'Report',
+            label: 'Equipment',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.directions_run),
-            label: 'History',
+            label: 'Workout',
           ),
         ],
         selectedItemColor: kcPrimaryColor,

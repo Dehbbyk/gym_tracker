@@ -13,6 +13,7 @@ import 'package:gym_tracker/ui/views/log_workout/log_workout_view.dart';
 import 'package:gym_tracker/ui/views/logged_workout/logged_workout_view.dart';
 import 'package:gym_tracker/ui/views/maintaince_history/maintaince_history_view.dart';
 import 'package:gym_tracker/ui/views/report_issues/report_issues_view.dart';
+import 'package:gym_tracker/ui/views/onboarding/onboarding_view.dart';
 // @stacked-import
 
 @StackedApp(
@@ -27,6 +28,7 @@ import 'package:gym_tracker/ui/views/report_issues/report_issues_view.dart';
     MaterialRoute(page: LoggedWorkoutView),
     MaterialRoute(page: MaintainceHistoryView),
     MaterialRoute(page: ReportIssuesView),
+    MaterialRoute(page: OnboardingView),
 // @stacked-route
   ],
   dependencies: [

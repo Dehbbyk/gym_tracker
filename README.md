@@ -20,12 +20,18 @@ To set up the project locally, follow these steps:
 ## Usage
 
 1. **Scan NFC tags**: Approach a tagged piece of gym equipment and scan the NFC tag to log your workout.
-2. **View equipment details**: Access detailed information about teh equipment as well as instructions on how to use the equipment.
-3. **Log Workout**: This shows information about the duration, type of exercise, weight and number of reps.
+2. **View equipment details**: Access detailed information about the equipment as well as instructions on how to use the equipment.
+3. **Log Workout**: This shows information about the duration, type of exercise, weight, and number of reps.
 5. **Check maintenance status**: View the maintenance schedule or report any issues with the equipment.
 
 ## Screenshots
 <img width="188" alt="Log Workout Screen" src="https://github.com/user-attachments/assets/309b8df9-d17a-45f4-8ad9-ba75af15ae30">
+Log Workout Screen
+
+
+<img width="186" alt="Logged Workout" src="https://github.com/user-attachments/assets/0e045485-ef5b-453e-82e4-e16250bc5707">
+Logged Workout Screen
+
 
 
 ## Contributing

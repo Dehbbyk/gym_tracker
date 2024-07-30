@@ -21,6 +21,9 @@ import 'package:gym_tracker/ui/views/all_workout/all_workout_view.dart';
 import 'package:gym_tracker/ui/views/all_workout/all_workout_view.dart';
 import 'package:gym_tracker/ui/views/maintenance/maintenance_view.dart';
 import 'package:gym_tracker/ui/views/maintenance_report/maintenance_report_view.dart';
+import 'package:gym_tracker/ui/dialogs/log_workout_saved/log_workout_saved_dialog.dart';
+import 'package:gym_tracker/services/log_workout_service.dart';
+import 'package:gym_tracker/ui/dialogs/issue_reported/issue_reported_dialog.dart';
 // @stacked-import
 
 @StackedApp(
@@ -49,6 +52,7 @@ import 'package:gym_tracker/ui/views/maintenance_report/maintenance_report_view.
     LazySingleton(classType: NavigationService),
     LazySingleton(classType: NfcService),
     LazySingleton(classType: AppService),
+    LazySingleton(classType: LogWorkoutService),
 // @stacked-service
   ],
   bottomsheets: [
@@ -57,7 +61,10 @@ import 'package:gym_tracker/ui/views/maintenance_report/maintenance_report_view.
   ],
   dialogs: [
     StackedDialog(classType: InfoAlertDialog),
-    // @stacked-dialog
+    StackedDialog(classType: LogWorkoutSavedDialog),
+    StackedDialog(classType: IssueReportedDialog),
+// @stacked-dialog
   ],
+  logger: StackedLogger(),
 )
 class App {}

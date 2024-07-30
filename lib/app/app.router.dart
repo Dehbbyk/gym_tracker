@@ -7,7 +7,7 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:flutter/material.dart' as _i18;
 import 'package:flutter/material.dart';
-import 'package:gym_tracker/ui/views/all_workout/all_workout_view.dart' as _i14;
+import 'package:gym_tracker/ui/views/all_workout/all_workout_view.dart' as _i15;
 import 'package:gym_tracker/ui/views/dashboard/dashboard_view.dart' as _i13;
 import 'package:gym_tracker/ui/views/equipment_detail/equipment_detail_view.dart'
     as _i7;
@@ -28,10 +28,11 @@ import 'package:gym_tracker/ui/views/sign_in/sign_in_view.dart' as _i4;
 import 'package:gym_tracker/ui/views/sign_up/sign_up_view.dart' as _i5;
 import 'package:gym_tracker/ui/views/startup/startup_view.dart' as _i3;
 import 'package:gym_tracker/ui/views/workout_details/workout_details_view.dart'
-    as _i15;
+    as _i14;
+import 'package:gym_tracker/ui/views/workout_details/workout_details_viewmodel.dart'
+    as _i19;
 import 'package:stacked/stacked.dart' as _i1;
-import 'package:stacked_services/stacked_services.dart' as _i19;
-import '../ui/views/workout_details/workout_details_viewmodel.dart';
+import 'package:stacked_services/stacked_services.dart' as _i20;
 
 class Routes {
   static const homeView = '/home-view';
@@ -58,9 +59,9 @@ class Routes {
 
   static const dashboardView = '/dashboard-view';
 
-  static const allWorkoutView = '/all-workout-view';
-
   static const workoutDetailsView = '/workout-details-view';
+
+  static const allWorkoutView = '/all-workout-view';
 
   static const maintenanceView = '/maintenance-view';
 
@@ -79,8 +80,8 @@ class Routes {
     reportIssuesView,
     onboardingView,
     dashboardView,
-    allWorkoutView,
     workoutDetailsView,
+    allWorkoutView,
     maintenanceView,
     maintenanceReportView,
   };
@@ -137,12 +138,12 @@ class StackedRouter extends _i1.RouterBase {
       page: _i13.DashboardView,
     ),
     _i1.RouteDef(
-      Routes.allWorkoutView,
-      page: _i14.AllWorkoutView,
+      Routes.workoutDetailsView,
+      page: _i14.WorkoutDetailsView,
     ),
     _i1.RouteDef(
-      Routes.workoutDetailsView,
-      page: _i15.WorkoutDetailsView,
+      Routes.allWorkoutView,
+      page: _i15.AllWorkoutView,
     ),
     _i1.RouteDef(
       Routes.maintenanceView,
@@ -227,24 +228,17 @@ class StackedRouter extends _i1.RouterBase {
         settings: data,
       );
     },
-    _i14.AllWorkoutView: (data) {
+    _i14.WorkoutDetailsView: (data) {
+      final args = data.getArgs<WorkoutDetailsViewArguments>(nullOk: false);
       return _i18.MaterialPageRoute<dynamic>(
-        builder: (context) => const _i14.AllWorkoutView(),
+        builder: (context) =>
+            _i14.WorkoutDetailsView(key: args.key, workout: args.workout),
         settings: data,
       );
     },
-    _i15.WorkoutDetailsView: (data) {
+    _i15.AllWorkoutView: (data) {
       return _i18.MaterialPageRoute<dynamic>(
-
-        builder: (context) => _i15.WorkoutDetailsView(
-            workout: Workout(
-          type: '',
-          sets: 0,
-          date: DateTime.now(),
-          duration: 0,
-          image: '',
-          reps: '',
-        )),
+        builder: (context) => const _i15.AllWorkoutView(),
         settings: data,
       );
     },
@@ -269,7 +263,34 @@ class StackedRouter extends _i1.RouterBase {
   Map<Type, _i1.StackedRouteFactory> get pagesMap => _pagesMap;
 }
 
-extension NavigatorStateExtension on _i19.NavigationService {
+class WorkoutDetailsViewArguments {
+  const WorkoutDetailsViewArguments({
+    this.key,
+    required this.workout,
+  });
+
+  final _i18.Key? key;
+
+  final _i19.Workout workout;
+
+  @override
+  String toString() {
+    return '{"key": "$key", "workout": "$workout"}';
+  }
+
+  @override
+  bool operator ==(covariant WorkoutDetailsViewArguments other) {
+    if (identical(this, other)) return true;
+    return other.key == key && other.workout == workout;
+  }
+
+  @override
+  int get hashCode {
+    return key.hashCode ^ workout.hashCode;
+  }
+}
+
+extension NavigatorStateExtension on _i20.NavigationService {
   Future<dynamic> navigateToHomeView([
     int? routerId,
     bool preventDuplicates = true,
@@ -438,6 +459,23 @@ extension NavigatorStateExtension on _i19.NavigationService {
         transition: transition);
   }
 
+  Future<dynamic> navigateToWorkoutDetailsView({
+    _i18.Key? key,
+    required _i19.Workout workout,
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  }) async {
+    return navigateTo<dynamic>(Routes.workoutDetailsView,
+        arguments: WorkoutDetailsViewArguments(key: key, workout: workout),
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
   Future<dynamic> navigateToAllWorkoutView([
     int? routerId,
     bool preventDuplicates = true,
@@ -446,20 +484,6 @@ extension NavigatorStateExtension on _i19.NavigationService {
         transition,
   ]) async {
     return navigateTo<dynamic>(Routes.allWorkoutView,
-        id: routerId,
-        preventDuplicates: preventDuplicates,
-        parameters: parameters,
-        transition: transition);
-  }
-
-  Future<dynamic> navigateToWorkoutDetailsView([
-    int? routerId,
-    bool preventDuplicates = true,
-    Map<String, String>? parameters,
-    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
-        transition,
-  ]) async {
-    return navigateTo<dynamic>(Routes.workoutDetailsView,
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
@@ -662,6 +686,23 @@ extension NavigatorStateExtension on _i19.NavigationService {
         transition: transition);
   }
 
+  Future<dynamic> replaceWithWorkoutDetailsView({
+    _i18.Key? key,
+    required _i19.Workout workout,
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  }) async {
+    return replaceWith<dynamic>(Routes.workoutDetailsView,
+        arguments: WorkoutDetailsViewArguments(key: key, workout: workout),
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
   Future<dynamic> replaceWithAllWorkoutView([
     int? routerId,
     bool preventDuplicates = true,
@@ -670,20 +711,6 @@ extension NavigatorStateExtension on _i19.NavigationService {
         transition,
   ]) async {
     return replaceWith<dynamic>(Routes.allWorkoutView,
-        id: routerId,
-        preventDuplicates: preventDuplicates,
-        parameters: parameters,
-        transition: transition);
-  }
-
-  Future<dynamic> replaceWithWorkoutDetailsView([
-    int? routerId,
-    bool preventDuplicates = true,
-    Map<String, String>? parameters,
-    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
-        transition,
-  ]) async {
-    return replaceWith<dynamic>(Routes.workoutDetailsView,
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,

@@ -38,11 +38,11 @@ class OnboardingViewModel extends BaseViewModel {
       noteIndex++;
       notifyListeners();
     } else {
-      _navigationService.navigateTo(Routes.dashboardView);
+      _navigationService.replaceWith(Routes.dashboardView);
     }
   }
 
   void skip() {
-    _navigationService.navigateTo(Routes.dashboardView);
+    _navigationService.replaceWith(Routes.dashboardView);
   }
 }

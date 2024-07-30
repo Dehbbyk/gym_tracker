@@ -4,6 +4,7 @@ import 'package:gym_tracker/app/app.locator.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:gym_tracker/services/nfc_service.dart';
 import 'package:gym_tracker/services/app_service.dart';
+import 'package:gym_tracker/services/log_workout_service.dart';
 // @stacked-import
 
 import 'test_helpers.mocks.dart';
@@ -14,6 +15,7 @@ import 'test_helpers.mocks.dart';
   MockSpec<DialogService>(onMissingStub: OnMissingStub.returnDefault),
   MockSpec<NfcService>(onMissingStub: OnMissingStub.returnDefault),
   MockSpec<AppService>(onMissingStub: OnMissingStub.returnDefault),
+  MockSpec<LogWorkoutService>(onMissingStub: OnMissingStub.returnDefault),
 // @stacked-mock-spec
 ])
 void registerServices() {
@@ -22,6 +24,7 @@ void registerServices() {
   getAndRegisterDialogService();
   getAndRegisterNfcService();
   getAndRegisterAppService();
+  getAndRegisterLogWorkoutService();
 // @stacked-mock-register
 }
 
@@ -86,6 +89,13 @@ MockAppService getAndRegisterAppService() {
   _removeRegistrationIfExists<AppService>();
   final service = MockAppService();
   locator.registerSingleton<AppService>(service);
+  return service;
+}
+
+MockLogWorkoutService getAndRegisterLogWorkoutService() {
+  _removeRegistrationIfExists<LogWorkoutService>();
+  final service = MockLogWorkoutService();
+  locator.registerSingleton<LogWorkoutService>(service);
   return service;
 }
 // @stacked-mock-create

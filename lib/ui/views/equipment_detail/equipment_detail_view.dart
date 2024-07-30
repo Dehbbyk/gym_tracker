@@ -93,7 +93,7 @@ class EquipmentDetailView extends StackedView<EquipmentDetailViewModel> {
                   ),
                   const Spacer(),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: viewModel.navigateToLogWorkOut,
                     style: ElevatedButton.styleFrom(
                         backgroundColor: kcPrimaryColor,
                         shape: RoundedRectangleBorder(
@@ -139,7 +139,7 @@ class EquipmentDetailView extends StackedView<EquipmentDetailViewModel> {
                 height: 40,
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: viewModel.navigateToReportIssues,
                   style: ElevatedButton.styleFrom(
                       backgroundColor: kcPrimaryColor,
                       shape: RoundedRectangleBorder(
@@ -162,7 +162,7 @@ class EquipmentDetailView extends StackedView<EquipmentDetailViewModel> {
                 height: 40,
                 width: double.infinity,
                 child: OutlinedButton(
-                  onPressed: () {},
+                  onPressed: viewModel.navigateToMaintenanceReport,
                   style: OutlinedButton.styleFrom(
                       side: const BorderSide(
                         color: kcVeryLightGrey,

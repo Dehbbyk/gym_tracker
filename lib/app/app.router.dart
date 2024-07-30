@@ -7,7 +7,7 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:flutter/material.dart' as _i15;
 import 'package:flutter/material.dart';
-import 'package:gym_tracker/ui/views/all_workout/all_workout_view.dart' as _i14;
+// import 'package:gym_tracker/ui/views/all_workout/all_workout_view.dart' as _i14;
 import 'package:gym_tracker/ui/views/dashboard/dashboard_view.dart' as _i13;
 import 'package:gym_tracker/ui/views/equipment_detail/equipment_detail_view.dart'
     as _i7;
@@ -121,10 +121,10 @@ class StackedRouter extends _i1.RouterBase {
       Routes.dashboardView,
       page: _i13.DashboardView,
     ),
-    _i1.RouteDef(
-      Routes.allWorkoutView,
-      page: _i14.AllWorkoutView,
-    ),
+    // _i1.RouteDef(
+    //   Routes.allWorkoutView,
+    //   page: _i14.AllWorkoutView,
+    // ),
   ];
 
   final _pagesMap = <Type, _i1.StackedRouteFactory>{
@@ -200,12 +200,12 @@ class StackedRouter extends _i1.RouterBase {
         settings: data,
       );
     },
-    _i14.AllWorkoutView: (data) {
-      return _i15.MaterialPageRoute<dynamic>(
-        builder: (context) => const _i14.AllWorkoutView(),
-        settings: data,
-      );
-    },
+    // _i14.AllWorkoutView: (data) {
+    //   return _i15.MaterialPageRoute<dynamic>(
+    //     builder: (context) => const _i14.AllWorkoutView(),
+    //     settings: data,
+    //   );
+    // },
   };
 
   @override

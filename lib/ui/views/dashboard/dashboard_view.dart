@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:gym_tracker/ui/common/app_colors.dart';
 import 'package:stacked/stacked.dart';
 
@@ -16,7 +15,7 @@ class DashboardView extends StackedView<DashboardViewModel> {
     Widget? child,
   ) {
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       body: IndexedStack(
         index: viewModel.selectedIndex,
         children: viewModel.widgetOptions,

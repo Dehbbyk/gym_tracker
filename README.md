@@ -26,15 +26,16 @@ To set up the project locally, follow these steps:
 5. **Check maintenance status**: View the maintenance schedule or report any issues with the equipment.
 
 ## Screenshots
+1. **Log Workout Screen**
 <img width="188" alt="Log Workout Screen" src="https://github.com/user-attachments/assets/309b8df9-d17a-45f4-8ad9-ba75af15ae30">
-Log Workout Screen
 
 
+2. **Logged Workout Screen**
 <img width="186" alt="Logged Workout" src="https://github.com/user-attachments/assets/0e045485-ef5b-453e-82e4-e16250bc5707">
-Logged Workout Screen
 
+3. **Equipment Details Screen**
 <img width= "186" alt="Equipment Details Screen" src= "https://github.com/user-attachments/assets/c83b837d-65d4-4643-ba2d-1d5b8843f53e">
-Equipment Details Screen
+
 
 
 

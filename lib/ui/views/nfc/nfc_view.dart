@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:gym_tracker/services/nfc_service.dart';
 import 'package:gym_tracker/ui/widgets/custom_button.dart';
 import 'package:stacked/stacked.dart';
-
 import 'nfc_viewmodel.dart';
 
 class NfcView extends StackedView<NfcViewModel> {
@@ -13,6 +13,18 @@ class NfcView extends StackedView<NfcViewModel> {
     NfcViewModel viewModel,
     Widget? child,
   ) {
+    // Example JSON data to write to the NFC tag
+    Map<String, String> jsonData = {
+      "equipmentName": "Treadmill Adult Tool",
+      "description": "A treadmill is a stationary exercise machine...",
+      "exerciseInstructions":
+          "Preparation: Ensure the treadmill is properly set up...",
+      "safetyTips":
+          "Safety Clip: Always attach the safety clip to your clothing...",
+      "watchVideo": "a youtube gym link",
+      "studySlide": "a blog or sth."
+    };
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("Scanning NFC"),
@@ -22,18 +34,14 @@ class NfcView extends StackedView<NfcViewModel> {
           padding: const EdgeInsets.all(24.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Image(
                 image: AssetImage("assets/images/nfc_tag_img.png"),
                 height: 230,
                 width: 230,
               ),
-              if (viewModel.isProcessing)
-                const Image(
-                  image: AssetImage("assets/images/nfc_tag_img.png"),
-                  height: 230,
-                  width: 230,
-                ),
+              if (viewModel.isProcessing) CircularProgressIndicator(),
               const Text(
                 "Hold the Phone’s NFC Area close to the Tag",
                 style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
@@ -46,14 +54,20 @@ class NfcView extends StackedView<NfcViewModel> {
               const SizedBox(height: 16),
               CustomButton(
                 buttonText: "Scan",
-                //onPressed: viewModel.startNFCOperation,
+                onPressed: () =>
+                    viewModel.startNFCOperation(NFCOperation.read, null),
+              ),
+              CustomButton(
+                buttonText: "Write",
+                onPressed: () =>
+                    viewModel.startNFCOperation(NFCOperation.write, jsonData),
               ),
               if (viewModel.message.isNotEmpty && !viewModel.isProcessing)
                 Column(
                   children: [
                     Text(
                       viewModel.message == "DONE"
-                          ? "Successfully Scanned"
+                          ? "Successfully Written"
                           : viewModel.message,
                       style: const TextStyle(
                           fontWeight: FontWeight.w700, fontSize: 16),
@@ -61,11 +75,16 @@ class NfcView extends StackedView<NfcViewModel> {
                     const SizedBox(height: 8),
                     if (viewModel.message == "DONE")
                       const Text(
-                        "Your exercise equipment has been scanned successfully.",
+                        "Your exercise equipment data has been written successfully.",
                         textAlign: TextAlign.center,
                       ),
                     if (viewModel.message == "DONE")
-                      const CustomButton(buttonText: "View Equipment Details"),
+                      CustomButton(
+                        buttonText: "View Equipment Details",
+                        onPressed: () {
+                          // Navigate to equipment details view
+                        },
+                      ),
                   ],
                 ),
             ],

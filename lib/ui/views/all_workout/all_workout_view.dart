@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:gym_tracker/ui/common/app_colors.dart';
 import 'package:gym_tracker/ui/widgets/custom_button.dart';
 import 'package:stacked/stacked.dart';
@@ -16,6 +17,29 @@ class AllWorkoutView extends StackedView<AllWorkoutViewModel> {
     Widget? child,
   ) {
     return Scaffold(
+        appBar: AppBar(
+          surfaceTintColor: Theme.of(context).colorScheme.background,
+          leading: Padding(
+            padding: const EdgeInsets.only(left: 24),
+            child: GestureDetector(
+              onTap: () => viewModel.goBack(),
+              child: Row(
+                children: [
+                  SvgPicture.asset(
+                    "assets/icons/arrow_left.svg",
+                    width: 24,
+                    height: 24,
+                  ),
+                ],
+              ),
+            ),
+          ),
+          centerTitle: true,
+          title: const Text(
+            "Saved Workout",
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+          ),
+        ),
         backgroundColor: Theme.of(context).colorScheme.background,
         body: Center(
           child: Padding(
@@ -62,6 +86,7 @@ class AllWorkoutView extends StackedView<AllWorkoutViewModel> {
                     itemBuilder: (BuildContext context, int index) {
                       return WorkoutCard(
                         logWorkOutModel: viewModel.workOutLogs[index],
+                        onView: () => viewModel.equipmentDetailsNavigation(),
                       );
                     }),
           ),

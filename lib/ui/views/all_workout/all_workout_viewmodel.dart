@@ -15,6 +15,11 @@ class AllWorkoutViewModel extends ReactiveViewModel {
     _navigationService.navigateTo(Routes.logWorkoutView);
   }
 
+  void equipmentDetailsNavigation() =>
+      _navigationService.navigateToEquipmentDetailView();
+
+  void goBack() => _navigationService.back();
+
   @override
   // TODO: implement listenableServices
   List<ListenableServiceMixin> get listenableServices => [_logWorkOutService];

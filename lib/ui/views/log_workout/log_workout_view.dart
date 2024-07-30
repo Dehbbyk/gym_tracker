@@ -8,10 +8,10 @@ class LogWorkoutView extends StackedView<LogWorkoutViewModel> {
 
   @override
   Widget builder(
-      BuildContext context,
-      LogWorkoutViewModel viewModel,
-      Widget? child,
-      ) {
+    BuildContext context,
+    LogWorkoutViewModel viewModel,
+    Widget? child,
+  ) {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -20,11 +20,10 @@ class LogWorkoutView extends StackedView<LogWorkoutViewModel> {
             Navigator.pop(context);
           },
         ),
-        title: const Center(
-          child: Text(
-            'Log Workout',
-            style: TextStyle(fontWeight: FontWeight.w500, fontSize: 20),
-          ),
+        centerTitle: true,
+        title: const Text(
+          'Log Workout',
+          style: TextStyle(fontWeight: FontWeight.w500, fontSize: 20),
         ),
       ),
       backgroundColor: Theme.of(context).colorScheme.background,
@@ -84,8 +83,7 @@ class LogWorkoutView extends StackedView<LogWorkoutViewModel> {
                     child: Text(exercise),
                   );
                 }).toList(),
-                onChanged:
-                    (value) {
+                onChanged: (value) {
                   viewModel.setTypeOfExercise(value);
                 },
                 validator: (value) {
@@ -101,6 +99,7 @@ class LogWorkoutView extends StackedView<LogWorkoutViewModel> {
               CustomTextField(
                 controller: viewModel.setController,
                 hintText: 'Type here',
+                
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter the set';
@@ -140,7 +139,6 @@ class LogWorkoutView extends StackedView<LogWorkoutViewModel> {
   LogWorkoutViewModel viewModelBuilder(BuildContext context) =>
       LogWorkoutViewModel();
 }
-
 
 class CustomTextLabel extends StatelessWidget {
   final String text;

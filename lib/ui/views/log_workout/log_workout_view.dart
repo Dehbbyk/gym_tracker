@@ -84,7 +84,8 @@ class LogWorkoutView extends StackedView<LogWorkoutViewModel> {
                     child: Text(exercise),
                   );
                 }).toList(),
-                onChanged: (value) {
+                onChanged:
+                    (value) {
                   viewModel.setTypeOfExercise(value);
                 },
                 validator: (value) {

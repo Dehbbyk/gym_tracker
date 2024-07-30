@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gym_tracker/ui/widgets/custom_button.dart';
 import 'package:stacked/stacked.dart';
@@ -56,7 +55,7 @@ class MaintainceHistoryView extends StackedView<MaintainceHistoryViewModel> {
           ),
         ],
       ),
-      backgroundColor: Theme.of(context).colorScheme.background,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       body: SingleChildScrollView(
         child: Column(
           children: [

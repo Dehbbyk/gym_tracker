@@ -29,7 +29,6 @@ import 'package:gym_tracker/ui/views/sign_up/sign_up_view.dart' as _i5;
 import 'package:gym_tracker/ui/views/startup/startup_view.dart' as _i3;
 import 'package:gym_tracker/ui/views/workout_details/workout_details_view.dart'
     as _i15;
-import 'package:gym_tracker/ui/views/workout_details/workout_details_viewmodel.dart';
 import 'package:stacked/stacked.dart' as _i1;
 import 'package:stacked_services/stacked_services.dart' as _i19;
 
@@ -233,12 +232,12 @@ class StackedRouter extends _i1.RouterBase {
         settings: data,
       );
     },
-    _i15.WorkoutDetailsView: (data) {
-      return _i18.MaterialPageRoute<dynamic>(
-        builder: (context) => const _i15.WorkoutDetailsView(workout: workout),
-        settings: data,
-      );
-    },
+    // _i15.WorkoutDetailsView: (data) {
+      // return _i18.MaterialPageRoute<dynamic>(
+        // builder: (context) => const _i15.WorkoutDetailsView(workout: workout,),
+        // settings: data,
+      // );
+    // },
     _i16.MaintenanceView: (data) {
       return _i18.MaterialPageRoute<dynamic>(
         builder: (context) => const _i16.MaintenanceView(),

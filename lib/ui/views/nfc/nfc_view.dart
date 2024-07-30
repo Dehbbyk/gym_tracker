@@ -44,7 +44,7 @@ class NfcView extends StackedView<NfcViewModel> {
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 16),
-              CustomButton(
+              const CustomButton(
                 buttonText: "Scan",
                 //onPressed: viewModel.startNFCOperation,
               ),

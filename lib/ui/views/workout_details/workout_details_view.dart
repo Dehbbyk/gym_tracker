@@ -9,29 +9,29 @@ class WorkoutDetailsView extends StackedView<WorkoutDetailsViewModel> {
 
   @override
   Widget builder(
-      BuildContext context,
-      WorkoutDetailsViewModel viewModel,
-      Widget? child,
-      ) {
+    BuildContext context,
+    WorkoutDetailsViewModel viewModel,
+    Widget? child,
+  ) {
     // if (workout == null) {
     //   return Center(child: Text("No workout details available"));
     // }
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.pop(context);
           },
         ),
-        title: Center(
+        title: const Center(
           child: Text(
             'Logged Workout',
             style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
           ),
         ),
       ),
-      backgroundColor: Theme.of(context).colorScheme.background,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       body: Container(
         padding: const EdgeInsets.all(25.0),
         child: Column(
@@ -43,42 +43,42 @@ class WorkoutDetailsView extends StackedView<WorkoutDetailsViewModel> {
               height: 200,
               fit: BoxFit.cover,
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Text(
               workout.type,
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Text(
               '${workout.date.toLocal()}'.split(' ')[0],
-              style: TextStyle(fontSize: 16, color: Colors.grey),
+              style: const TextStyle(fontSize: 16, color: Colors.grey),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Row(
               children: [
-                Icon(Icons.fitness_center, size: 20),
-                SizedBox(width: 5),
+                const Icon(Icons.fitness_center, size: 20),
+                const SizedBox(width: 5),
                 Text(
                   'Set: ${workout.sets}',
-                  style: TextStyle(fontSize: 16),
+                  style: const TextStyle(fontSize: 16),
                 ),
-                SizedBox(width: 20),
-                Icon(Icons.timer, size: 20),
-                SizedBox(width: 5),
+                const SizedBox(width: 20),
+                const Icon(Icons.timer, size: 20),
+                const SizedBox(width: 5),
                 Text(
                   '${workout.duration} mins',
-                  style: TextStyle(fontSize: 16),
+                  style: const TextStyle(fontSize: 16),
                 ),
-                SizedBox(width: 20),
-                Icon(Icons.repeat, size: 20),
-                SizedBox(width: 5),
+                const SizedBox(width: 20),
+                const Icon(Icons.repeat, size: 20),
+                const SizedBox(width: 5),
                 Text(
                   'Reps: ${workout.reps}',
-                  style: TextStyle(fontSize: 16),
+                  style: const TextStyle(fontSize: 16),
                 ),
               ],
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
@@ -86,16 +86,16 @@ class WorkoutDetailsView extends StackedView<WorkoutDetailsViewModel> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.red, // Background color
                 ),
-                child: Text(
+                child: const Text(
                   'Delete Workout',
                   style: TextStyle(color: Colors.white),
                 ),
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             OutlinedButton(
               onPressed: viewModel.editWorkout,
-              child: Text('Edit Workout'),
+              child: const Text('Edit Workout'),
             ),
           ],
         ),

@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:nfc_manager/nfc_manager.dart';
 import 'package:stacked/stacked.dart';
 
@@ -40,7 +39,8 @@ class LogWorkoutViewModel extends BaseViewModel {
   Future<void> readNfcTag() async {
     if (await NfcManager.instance.isAvailable()) {
       try {
-        await NfcManager.instance.startSession(onDiscovered: (NfcTag tag) async {
+        await NfcManager.instance.startSession(
+            onDiscovered: (NfcTag tag) async {
           Ndef? ndef = Ndef.from(tag);
           if (ndef == null) {
             print('Tag is not NDEF');
@@ -49,11 +49,13 @@ class LogWorkoutViewModel extends BaseViewModel {
           final message = ndef.cachedMessage;
           if (message != null) {
             for (NdefRecord record in message.records) {
-              if (record.typeNameFormat == NdefTypeNameFormat.wellKnown &&
+              if (record.typeNameFormat == NdefTypeNameFormat.nfcWellknown &&
                   record.type == 'T') {
                 final languageCodeLength = record.payload.first;
-                final languageCode = String.fromCharCodes(record.payload.sublist(1, 1 + languageCodeLength));
-                final payload = String.fromCharCodes(record.payload.sublist(1 + languageCodeLength));
+                final languageCode = String.fromCharCodes(
+                    record.payload.sublist(1, 1 + languageCodeLength));
+                final payload = String.fromCharCodes(
+                    record.payload.sublist(1 + languageCodeLength));
                 // Handle payload data
                 print('NFC Tag read: $payload');
               }
@@ -72,7 +74,8 @@ class LogWorkoutViewModel extends BaseViewModel {
   Future<void> writeNfcTag(String data) async {
     if (await NfcManager.instance.isAvailable()) {
       try {
-        await NfcManager.instance.startSession(onDiscovered: (NfcTag tag) async {
+        await NfcManager.instance.startSession(
+            onDiscovered: (NfcTag tag) async {
           Ndef? ndef = Ndef.from(tag);
           if (ndef == null) {
             print('Tag is not NDEF');

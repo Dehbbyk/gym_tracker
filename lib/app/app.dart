@@ -18,7 +18,6 @@ import 'package:gym_tracker/ui/views/onboarding/onboarding_view.dart';
 import 'package:gym_tracker/services/app_service.dart';
 import 'package:gym_tracker/ui/views/dashboard/dashboard_view.dart';
 import 'package:gym_tracker/ui/views/all_workout/all_workout_view.dart';
-import 'package:gym_tracker/ui/views/all_workout/all_workout_view.dart';
 import 'package:gym_tracker/ui/views/maintenance/maintenance_view.dart';
 import 'package:gym_tracker/ui/views/maintenance_report/maintenance_report_view.dart';
 // @stacked-import

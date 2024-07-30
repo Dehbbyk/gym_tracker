@@ -13,9 +13,9 @@ class WorkoutDetailsView extends StackedView<WorkoutDetailsViewModel> {
       WorkoutDetailsViewModel viewModel,
       Widget? child,
       ) {
-    if (workout == null) {
-      return Center(child: Text("No workout details available"));
-    }
+    // if (workout == null) {
+    //   return Center(child: Text("No workout details available"));
+    // }
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(

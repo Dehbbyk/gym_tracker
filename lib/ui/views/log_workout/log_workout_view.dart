@@ -8,10 +8,10 @@ class LogWorkoutView extends StackedView<LogWorkoutViewModel> {
 
   @override
   Widget builder(
-    BuildContext context,
-    LogWorkoutViewModel viewModel,
-    Widget? child,
-  ) {
+      BuildContext context,
+      LogWorkoutViewModel viewModel,
+      Widget? child,
+      ) {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -76,7 +76,6 @@ class LogWorkoutView extends StackedView<LogWorkoutViewModel> {
             TextField(
               decoration: InputDecoration(
                 hintText: 'Type here',
-                suffixIcon: Icon(Icons.remove_red_eye_outlined),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10.0),
                 ),
@@ -99,7 +98,7 @@ class LogWorkoutView extends StackedView<LogWorkoutViewModel> {
                   borderRadius: BorderRadius.circular(10.0),
                 ),
               ),
-              onChanged: viewModel.setSize,
+              onChanged: viewModel.setWeight,
             ),
             SizedBox(height: 10),
             Text(
@@ -120,24 +119,36 @@ class LogWorkoutView extends StackedView<LogWorkoutViewModel> {
               onChanged: viewModel.setRepetition,
             ),
             SizedBox(height: 20),
-            SizedBox(
-              width: double.infinity,
-              child: TextButton(
-                style: TextButton.styleFrom(
-                  backgroundColor: Colors.orange,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5.0)),
+            Row(
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    // Save workout details
+                    viewModel.saveWorkout();
+                  },
+                  child: Text('Save Workout'),
                 ),
-                onPressed: viewModel.saveWorkout,
-                child: Text(
-                  'Save Workout',
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w500,
-                  ),
+                SizedBox(width: 10),
+                ElevatedButton(
+                  onPressed: () {
+                    // Write to NFC tag
+                    final workoutData = 'Duration: ${viewModel.duration}, '
+                        'Type: ${viewModel.typeOfExercise}, '
+                        'Weight: ${viewModel.weight}, '
+                        'Repetitions: ${viewModel.repetition}';
+                    viewModel.writeNfcTag(workoutData);
+                  },
+                  child: Text('Write to NFC'),
                 ),
-              ),
+                SizedBox(width: 10),
+                ElevatedButton(
+                  onPressed: () {
+                    // Read from NFC tag
+                    viewModel.readNfcTag();
+                  },
+                  child: Text('Read NFC'),
+                ),
+              ],
             ),
           ],
         ),

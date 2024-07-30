@@ -31,6 +31,7 @@ import 'package:gym_tracker/ui/views/workout_details/workout_details_view.dart'
     as _i15;
 import 'package:stacked/stacked.dart' as _i1;
 import 'package:stacked_services/stacked_services.dart' as _i19;
+import '../ui/views/workout_details/workout_details_viewmodel.dart';
 
 class Routes {
   static const homeView = '/home-view';
@@ -234,7 +235,16 @@ class StackedRouter extends _i1.RouterBase {
     },
     _i15.WorkoutDetailsView: (data) {
       return _i18.MaterialPageRoute<dynamic>(
-        builder: (context) => const _i15.WorkoutDetailsView(workout: null),
+
+        builder: (context) => _i15.WorkoutDetailsView(
+            workout: Workout(
+          type: '',
+          sets: 0,
+          date: DateTime.now(),
+          duration: 0,
+          image: '',
+          reps: '',
+        )
         settings: data,
       );
     },

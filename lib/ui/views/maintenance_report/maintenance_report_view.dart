@@ -38,7 +38,7 @@ class MaintenanceReportView extends StackedView<MaintenanceReportViewModel> {
         ),
         centerTitle: true,
         title: const Text(
-          "Equipment Details",
+          "Maintenance Report",
           style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
         ),
       ),
@@ -142,7 +142,7 @@ class MaintenanceReportView extends StackedView<MaintenanceReportViewModel> {
               const SizedBox(height: 16),
               Row(
                 children: [
-                  Text("Status"),
+                  const Text("Status"),
                   const Spacer(),
                   Container(
                     padding:
@@ -151,7 +151,7 @@ class MaintenanceReportView extends StackedView<MaintenanceReportViewModel> {
                       color: kcSuccessTint,
                       borderRadius: BorderRadius.circular(16),
                     ),
-                    child: Text(
+                    child: const Text(
                       "Maintained",
                       style: TextStyle(
                           fontSize: 10,
@@ -166,7 +166,7 @@ class MaintenanceReportView extends StackedView<MaintenanceReportViewModel> {
                 height: 40,
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () => viewModel.reportIssuesNavigation(),
+                  onPressed: () => viewModel.maintenanceHistoryNavigation(),
                   style: ElevatedButton.styleFrom(
                       backgroundColor: kcPrimaryColor,
                       shape: RoundedRectangleBorder(
@@ -189,7 +189,7 @@ class MaintenanceReportView extends StackedView<MaintenanceReportViewModel> {
                 height: 40,
                 width: double.infinity,
                 child: OutlinedButton(
-                  onPressed: () => viewModel.maintenanceReportNavigation(),
+                  onPressed: () => viewModel.reportIssuesNavigation(),
                   style: OutlinedButton.styleFrom(
                       side: const BorderSide(
                         color: kcVeryLightGrey,

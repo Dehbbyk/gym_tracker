@@ -21,8 +21,8 @@ class MaintenanceReportViewModel extends BaseViewModel {
   void logWorkoutNavigation() => _navigationService.navigateToLogWorkoutView();
   void reportIssuesNavigation() =>
       _navigationService.navigateToReportIssuesView();
-  void maintenanceReportNavigation() =>
-      _navigationService.navigateToMaintenanceView();
+  void maintenanceHistoryNavigation() =>
+      _navigationService.navigateToMaintainceHistoryView();
 
   void changeNote(int index) {
     noteIndex = index;

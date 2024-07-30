@@ -57,6 +57,7 @@ class MaintainceHistoryView extends StackedView<MaintainceHistoryViewModel> {
       ),
       backgroundColor: Theme.of(context).colorScheme.background,
       body: SingleChildScrollView(
+        padding: const EdgeInsets.all(16),
         child: Column(
           children: [
             Container(
@@ -336,7 +337,7 @@ class MaintainceHistoryView extends StackedView<MaintainceHistoryViewModel> {
                 ],
               ),
             ),
-            const CustomButton(buttonText: "Download Report")
+             CustomButton(buttonText: "Return to Equipment", onPressed: viewModel.navigateToEquipment,)
           ],
         ),
       ),

@@ -244,7 +244,7 @@ class StackedRouter extends _i1.RouterBase {
           duration: 0,
           image: '',
           reps: '',
-        )
+        )),
         settings: data,
       );
     },

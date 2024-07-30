@@ -99,7 +99,7 @@ class LogWorkoutView extends StackedView<LogWorkoutViewModel> {
                   borderRadius: BorderRadius.circular(10.0),
                 ),
               ),
-              onChanged: viewModel.setSize,
+              onChanged: viewModel.setWeight,
             ),
             SizedBox(height: 10),
             Text(

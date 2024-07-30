@@ -8,6 +8,7 @@ The Gym Tracker is a mobile application that allows users to track the usage of 
 2. **Workout Logging**: Track the usage of each piece of equipment, including duration and frequency.
 3. **Equipment Details**: Access detailed equipment information, exercise instructions and tips for using the equipment safely and effectively.
 4. **Maintenance Tracking**: View maintenance schedules and report equipment issues.
+5. **Maintenance Report**: View status and download maintenance history/report of each equipment and report equipment issues.
 
 ## Installation
 

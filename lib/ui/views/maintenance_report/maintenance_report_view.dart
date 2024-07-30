@@ -5,15 +5,16 @@ import 'package:gym_tracker/ui/common/app_colors.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:stacked/stacked.dart';
 
-import 'equipment_detail_viewmodel.dart';
+// import 'equipment_detail_viewmodel.dart';
+import 'maintenance_report_viewmodel.dart';
 
-class EquipmentDetailView extends StackedView<EquipmentDetailViewModel> {
-  const EquipmentDetailView({Key? key}) : super(key: key);
+class MaintenanceReportView extends StackedView<MaintenanceReportViewModel> {
+  const MaintenanceReportView({Key? key}) : super(key: key);
 
   @override
   Widget builder(
     BuildContext context,
-    EquipmentDetailViewModel viewModel,
+    MaintenanceReportViewModel viewModel,
     Widget? child,
   ) {
     return Scaffold(
@@ -45,6 +46,7 @@ class EquipmentDetailView extends StackedView<EquipmentDetailViewModel> {
         padding: const EdgeInsets.symmetric(horizontal: 24),
         child: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
                 height: 221,
@@ -88,56 +90,75 @@ class EquipmentDetailView extends StackedView<EquipmentDetailViewModel> {
                 ),
               ),
               const SizedBox(height: 24),
+              const Text(
+                "Treadmill Adult Tool",
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+              ),
               Row(
                 children: [
-                  const Text(
-                    "Treadmill Adult Tool",
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-                  ),
-                  const Spacer(),
-                  SizedBox(
-                    height: 33,
-                    child: ElevatedButton(
-                      onPressed: () => viewModel.logWorkoutNavigation(),
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: kcPrimaryColor,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(6),
-                          ),
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 16.5, vertical: 4),
-                          elevation: 0),
-                      child: const Text(
-                        "Log workout",
-                        style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white),
-                      ),
+                  const Text("Cardio",
+                      style:
+                          TextStyle(fontSize: 12, fontWeight: FontWeight.w400)),
+                  Container(
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+                    decoration: BoxDecoration(
+                      color: kcSuccessTint,
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    child: const Text(
+                      "Available",
+                      style: TextStyle(
+                          fontSize: 10,
+                          fontWeight: FontWeight.w400,
+                          color: kcSuccess),
                     ),
                   ),
                 ],
               ),
+              const Row(
+                children: [
+                  Text("4.5",
+                      style:
+                          TextStyle(fontSize: 12, fontWeight: FontWeight.w500)),
+                ],
+              ),
               const SizedBox(height: 14),
               const ExpansionTileWidget(
-                title: "Description of Equipment",
+                title: "Maintenance Report",
                 content: [
                   Text(
                       "A treadmill is a stationary exercise machine that allows users to walk, jog, or run indoors. It consists of a moving platform with a wide conveyor belt driven by an electric motor or flywheel. The speed and incline of the treadmill can be adjusted to simulate different walking or running conditions. Most treadmills come equipped with a display panel that shows key workout metrics such as speed, distance, time, and calories burned. Some advanced models also offer built-in workout programs, heart rate monitoring, and entertainment features like music or video screens.")
                 ],
               ),
               const ExpansionTileWidget(
-                title: "Exercise Instructions",
-                content: [
-                  Text(
-                      "A treadmill is a stationary exercise machine that allows users to walk, jog, or run indoors. It consists of a moving platform with a wide conveyor belt driven by an electric motor or flywheel. The speed and incline of the treadmill can be adjusted to simulate different walking or running conditions. Most treadmills come equipped with a display panel that shows key workout metrics such as speed, distance, time, and calories burned. Some advanced models also offer built-in workout programs, heart rate monitoring, and entertainment features like music or video screens.")
-                ],
+                title: "Last Maintenance Date",
+                content: [Text("17th July, 2024")],
               ),
               const ExpansionTileWidget(
-                title: "Safety tips",
-                content: [
-                  Text(
-                      "A treadmill is a stationary exercise machine that allows users to walk, jog, or run indoors. It consists of a moving platform with a wide conveyor belt driven by an electric motor or flywheel. The speed and incline of the treadmill can be adjusted to simulate different walking or running conditions. Most treadmills come equipped with a display panel that shows key workout metrics such as speed, distance, time, and calories burned. Some advanced models also offer built-in workout programs, heart rate monitoring, and entertainment features like music or video screens.")
+                title: "Next Maintenance Date",
+                content: [Text("October 17th, 2024")],
+              ),
+              const SizedBox(height: 16),
+              Row(
+                children: [
+                  Text("Status"),
+                  const Spacer(),
+                  Container(
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+                    decoration: BoxDecoration(
+                      color: kcSuccessTint,
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    child: Text(
+                      "Maintained",
+                      style: TextStyle(
+                          fontSize: 10,
+                          fontWeight: FontWeight.w400,
+                          color: kcSuccess),
+                    ),
+                  ),
                 ],
               ),
               const SizedBox(height: 24),
@@ -155,7 +176,7 @@ class EquipmentDetailView extends StackedView<EquipmentDetailViewModel> {
                           horizontal: 16.5, vertical: 8),
                       elevation: 0),
                   child: const Text(
-                    "Report Issues",
+                    "View Maintenance History",
                     style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w600,
@@ -181,7 +202,7 @@ class EquipmentDetailView extends StackedView<EquipmentDetailViewModel> {
                           horizontal: 16.5, vertical: 8),
                       elevation: 0),
                   child: const Text(
-                    "View Maintenance Reports",
+                    "Report Issues",
                     style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w600,
@@ -198,10 +219,10 @@ class EquipmentDetailView extends StackedView<EquipmentDetailViewModel> {
   }
 
   @override
-  EquipmentDetailViewModel viewModelBuilder(
+  MaintenanceReportViewModel viewModelBuilder(
     BuildContext context,
   ) =>
-      EquipmentDetailViewModel();
+      MaintenanceReportViewModel();
 }
 
 class ExpansionTileWidget extends StatelessWidget {
@@ -222,6 +243,8 @@ class ExpansionTileWidget extends StatelessWidget {
         initiallyExpanded: true,
         tilePadding: EdgeInsets.zero,
         childrenPadding: EdgeInsets.zero,
+        expandedCrossAxisAlignment: CrossAxisAlignment.start,
+        expandedAlignment: Alignment.centerLeft,
         title: Text(
           title,
           style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),

@@ -11,9 +11,13 @@ class OnboardingSlide extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Image(
-          image: AssetImage(model.onboardingImgUrl),
+        SizedBox(
           height: 410,
+          width: double.infinity,
+          child: Image(
+            image: AssetImage(model.onboardingImgUrl),
+            fit: BoxFit.cover,
+          ),
         ),
         const SizedBox(height: 80),
         Padding(

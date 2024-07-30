@@ -5,7 +5,7 @@
 // **************************************************************************
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:flutter/material.dart' as _i14;
+import 'package:flutter/material.dart' as _i15;
 import 'package:flutter/material.dart';
 import 'package:gym_tracker/ui/views/equipment_detail/equipment_detail_view.dart'
     as _i7;
@@ -16,6 +16,8 @@ import 'package:gym_tracker/ui/views/logged_workout/logged_workout_view.dart'
 import 'package:gym_tracker/ui/views/maintaince_history/maintaince_history_view.dart'
     as _i10;
 import 'package:gym_tracker/ui/views/maintenance/maintenance_view.dart' as _i13;
+import 'package:gym_tracker/ui/views/maintenance_report/maintenance_report_view.dart'
+    as _i14;
 import 'package:gym_tracker/ui/views/nfc/nfc_view.dart' as _i6;
 import 'package:gym_tracker/ui/views/onboarding/onboarding_view.dart' as _i12;
 import 'package:gym_tracker/ui/views/report_issues/report_issues_view.dart'
@@ -24,7 +26,7 @@ import 'package:gym_tracker/ui/views/sign_in/sign_in_view.dart' as _i4;
 import 'package:gym_tracker/ui/views/sign_up/sign_up_view.dart' as _i5;
 import 'package:gym_tracker/ui/views/startup/startup_view.dart' as _i3;
 import 'package:stacked/stacked.dart' as _i1;
-import 'package:stacked_services/stacked_services.dart' as _i15;
+import 'package:stacked_services/stacked_services.dart' as _i16;
 
 class Routes {
   static const homeView = '/home-view';
@@ -51,6 +53,8 @@ class Routes {
 
   static const maintenanceView = '/maintenance-view';
 
+  static const maintenanceReportView = '/maintenance-report-view';
+
   static const all = <String>{
     homeView,
     startupView,
@@ -64,6 +68,7 @@ class Routes {
     reportIssuesView,
     onboardingView,
     maintenanceView,
+    maintenanceReportView,
   };
 }
 
@@ -117,78 +122,88 @@ class StackedRouter extends _i1.RouterBase {
       Routes.maintenanceView,
       page: _i13.MaintenanceView,
     ),
+    _i1.RouteDef(
+      Routes.maintenanceReportView,
+      page: _i14.MaintenanceReportView,
+    ),
   ];
 
   final _pagesMap = <Type, _i1.StackedRouteFactory>{
     _i2.HomeView: (data) {
-      return _i14.MaterialPageRoute<dynamic>(
+      return _i15.MaterialPageRoute<dynamic>(
         builder: (context) => const _i2.HomeView(),
         settings: data,
       );
     },
     _i3.StartupView: (data) {
-      return _i14.MaterialPageRoute<dynamic>(
+      return _i15.MaterialPageRoute<dynamic>(
         builder: (context) => const _i3.StartupView(),
         settings: data,
       );
     },
     _i4.SignInView: (data) {
-      return _i14.MaterialPageRoute<dynamic>(
+      return _i15.MaterialPageRoute<dynamic>(
         builder: (context) => const _i4.SignInView(),
         settings: data,
       );
     },
     _i5.SignUpView: (data) {
-      return _i14.MaterialPageRoute<dynamic>(
+      return _i15.MaterialPageRoute<dynamic>(
         builder: (context) => const _i5.SignUpView(),
         settings: data,
       );
     },
     _i6.NfcView: (data) {
-      return _i14.MaterialPageRoute<dynamic>(
+      return _i15.MaterialPageRoute<dynamic>(
         builder: (context) => const _i6.NfcView(),
         settings: data,
       );
     },
     _i7.EquipmentDetailView: (data) {
-      return _i14.MaterialPageRoute<dynamic>(
+      return _i15.MaterialPageRoute<dynamic>(
         builder: (context) => const _i7.EquipmentDetailView(),
         settings: data,
       );
     },
     _i8.LogWorkoutView: (data) {
-      return _i14.MaterialPageRoute<dynamic>(
+      return _i15.MaterialPageRoute<dynamic>(
         builder: (context) => const _i8.LogWorkoutView(),
         settings: data,
       );
     },
     _i9.LoggedWorkoutView: (data) {
-      return _i14.MaterialPageRoute<dynamic>(
+      return _i15.MaterialPageRoute<dynamic>(
         builder: (context) => const _i9.LoggedWorkoutView(),
         settings: data,
       );
     },
     _i10.MaintainceHistoryView: (data) {
-      return _i14.MaterialPageRoute<dynamic>(
+      return _i15.MaterialPageRoute<dynamic>(
         builder: (context) => const _i10.MaintainceHistoryView(),
         settings: data,
       );
     },
     _i11.ReportIssuesView: (data) {
-      return _i14.MaterialPageRoute<dynamic>(
+      return _i15.MaterialPageRoute<dynamic>(
         builder: (context) => const _i11.ReportIssuesView(),
         settings: data,
       );
     },
     _i12.OnboardingView: (data) {
-      return _i14.MaterialPageRoute<dynamic>(
+      return _i15.MaterialPageRoute<dynamic>(
         builder: (context) => const _i12.OnboardingView(),
         settings: data,
       );
     },
     _i13.MaintenanceView: (data) {
-      return _i14.MaterialPageRoute<dynamic>(
+      return _i15.MaterialPageRoute<dynamic>(
         builder: (context) => const _i13.MaintenanceView(),
+        settings: data,
+      );
+    },
+    _i14.MaintenanceReportView: (data) {
+      return _i15.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i14.MaintenanceReportView(),
         settings: data,
       );
     },
@@ -201,7 +216,7 @@ class StackedRouter extends _i1.RouterBase {
   Map<Type, _i1.StackedRouteFactory> get pagesMap => _pagesMap;
 }
 
-extension NavigatorStateExtension on _i15.NavigationService {
+extension NavigatorStateExtension on _i16.NavigationService {
   Future<dynamic> navigateToHomeView([
     int? routerId,
     bool preventDuplicates = true,
@@ -370,6 +385,20 @@ extension NavigatorStateExtension on _i15.NavigationService {
         transition: transition);
   }
 
+  Future<dynamic> navigateToMaintenanceReportView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return navigateTo<dynamic>(Routes.maintenanceReportView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
   Future<dynamic> replaceWithHomeView([
     int? routerId,
     bool preventDuplicates = true,
@@ -532,6 +561,20 @@ extension NavigatorStateExtension on _i15.NavigationService {
         transition,
   ]) async {
     return replaceWith<dynamic>(Routes.maintenanceView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> replaceWithMaintenanceReportView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return replaceWith<dynamic>(Routes.maintenanceReportView,
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,

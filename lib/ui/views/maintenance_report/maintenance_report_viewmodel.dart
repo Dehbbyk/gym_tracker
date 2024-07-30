@@ -4,7 +4,7 @@ import 'package:stacked_services/stacked_services.dart';
 
 import '../../../app/app.locator.dart';
 
-class EquipmentDetailViewModel extends BaseViewModel {
+class MaintenanceReportViewModel extends BaseViewModel {
   final _navigationService = locator<NavigationService>();
   int noteIndex = 0;
 
@@ -22,7 +22,7 @@ class EquipmentDetailViewModel extends BaseViewModel {
   void reportIssuesNavigation() =>
       _navigationService.navigateToReportIssuesView();
   void maintenanceReportNavigation() =>
-      _navigationService.navigateToMaintenanceReportView();
+      _navigationService.navigateToMaintenanceView();
 
   void changeNote(int index) {
     noteIndex = index;

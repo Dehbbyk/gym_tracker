@@ -23,7 +23,7 @@ To set up the project locally, follow these steps:
 1. **Scan NFC tags**: Approach a tagged piece of gym equipment and scan the NFC tag to log your workout.
 2. **View equipment details**: Access detailed information about the equipment as well as instructions on how to use the equipment.
 3. **Log Workout**: This shows information about the duration, type of exercise, weight, and number of reps.
-5. **Check maintenance status**: View the maintenance schedule or report any issues with the equipment.
+5. **Check maintenance status**: View and download the maintenance report or report any issues with the equipment.
 
 ## Screenshots
 1. **Log Workout Screen**

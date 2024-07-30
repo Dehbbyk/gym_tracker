@@ -12,10 +12,10 @@ class EquipmentDetailView extends StackedView<EquipmentDetailViewModel> {
 
   @override
   Widget builder(
-    BuildContext context,
-    EquipmentDetailViewModel viewModel,
-    Widget? child,
-  ) {
+      BuildContext context,
+      EquipmentDetailViewModel viewModel,
+      Widget? child,
+      ) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
@@ -58,7 +58,7 @@ class EquipmentDetailView extends StackedView<EquipmentDetailViewModel> {
                       slideTransform: const ZoomOutSlideTransform(),
                       children: List.generate(
                         viewModel.onboardingNotes.length,
-                        (index) => Image.asset(
+                            (index) => Image.asset(
                           viewModel.onboardingNotes[index],
                           width: double.infinity,
                           fit: BoxFit.cover,
@@ -90,15 +90,15 @@ class EquipmentDetailView extends StackedView<EquipmentDetailViewModel> {
               const SizedBox(height: 24),
               Row(
                 children: [
-                  const Text(
-                    "Treadmill Adult Tool",
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                  Text(
+                    viewModel.equipmentData["equipment"]['name'],
+                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
                   ),
                   const Spacer(),
                   SizedBox(
                     height: 33,
                     child: ElevatedButton(
-                      onPressed: () => viewModel.logWorkoutNavigation(),
+                      onPressed: viewModel.navigateToLogWorkOut,
                       style: ElevatedButton.styleFrom(
                           backgroundColor: kcPrimaryColor,
                           shape: RoundedRectangleBorder(
@@ -119,26 +119,27 @@ class EquipmentDetailView extends StackedView<EquipmentDetailViewModel> {
                 ],
               ),
               const SizedBox(height: 14),
-              const ExpansionTileWidget(
+              ExpansionTileWidget(
                 title: "Description of Equipment",
                 content: [
-                  Text(
-                      "A treadmill is a stationary exercise machine that allows users to walk, jog, or run indoors. It consists of a moving platform with a wide conveyor belt driven by an electric motor or flywheel. The speed and incline of the treadmill can be adjusted to simulate different walking or running conditions. Most treadmills come equipped with a display panel that shows key workout metrics such as speed, distance, time, and calories burned. Some advanced models also offer built-in workout programs, heart rate monitoring, and entertainment features like music or video screens.")
+                  Text(viewModel.equipmentData["equipment"]['description'])
                 ],
               ),
-              const ExpansionTileWidget(
-                title: "Exercise Instructions",
-                content: [
-                  Text(
-                      "A treadmill is a stationary exercise machine that allows users to walk, jog, or run indoors. It consists of a moving platform with a wide conveyor belt driven by an electric motor or flywheel. The speed and incline of the treadmill can be adjusted to simulate different walking or running conditions. Most treadmills come equipped with a display panel that shows key workout metrics such as speed, distance, time, and calories burned. Some advanced models also offer built-in workout programs, heart rate monitoring, and entertainment features like music or video screens.")
-                ],
+              const SizedBox(height: 14),
+              ExpansionTileWidget(
+                title: "Usage Instructions",
+                content: viewModel.equipmentData['instructions']
+                    .entries
+                    .map<Widget>((entry) => Text("• ${entry.value}"))
+                    .toList(),
               ),
-              const ExpansionTileWidget(
-                title: "Safety tips",
-                content: [
-                  Text(
-                      "A treadmill is a stationary exercise machine that allows users to walk, jog, or run indoors. It consists of a moving platform with a wide conveyor belt driven by an electric motor or flywheel. The speed and incline of the treadmill can be adjusted to simulate different walking or running conditions. Most treadmills come equipped with a display panel that shows key workout metrics such as speed, distance, time, and calories burned. Some advanced models also offer built-in workout programs, heart rate monitoring, and entertainment features like music or video screens.")
-                ],
+              const SizedBox(height: 14),
+              ExpansionTileWidget(
+                title: "Safety Tips",
+                content: viewModel.equipmentData['safetyTips']
+                    .entries
+                    .map<Widget>((entry) => Text("• ${entry.value}"))
+                    .toList(),
               ),
               const SizedBox(height: 24),
               SizedBox(
@@ -199,8 +200,8 @@ class EquipmentDetailView extends StackedView<EquipmentDetailViewModel> {
 
   @override
   EquipmentDetailViewModel viewModelBuilder(
-    BuildContext context,
-  ) =>
+      BuildContext context,
+      ) =>
       EquipmentDetailViewModel();
 }
 

@@ -3,6 +3,10 @@ import 'package:gym_tracker/app/app.router.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
+import 'package:gym_tracker/app/app.router.dart';
+import 'package:stacked/stacked.dart';
+import 'package:stacked_services/stacked_services.dart';
+
 import '../../../app/app.locator.dart';
 
 class MaintenanceReportViewModel extends BaseViewModel {
@@ -24,6 +28,8 @@ class MaintenanceReportViewModel extends BaseViewModel {
       _navigationService.navigateToReportIssuesView();
   void maintenanceReportNavigation() =>
       _navigationService.navigateToMaintenanceView();
+  void maintenanceHistoryNavigation() =>
+      _navigationService.navigateToMaintainceHistoryView();
 
   void changeNote(int index) {
     noteIndex = index;
@@ -34,3 +40,4 @@ class MaintenanceReportViewModel extends BaseViewModel {
 
 
 // class MaintenanceReportViewModel extends BaseViewModel {}
+

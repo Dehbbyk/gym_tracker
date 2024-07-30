@@ -112,6 +112,7 @@ class NfcView extends StackedView<NfcViewModel> {
     );
   }
 
+
   @override
   NfcViewModel viewModelBuilder(BuildContext context) => NfcViewModel();
 

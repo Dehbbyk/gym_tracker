@@ -1,7 +1,6 @@
 import 'package:gym_tracker/ui/bottom_sheets/notice/notice_sheet.dart';
 import 'package:gym_tracker/ui/dialogs/info_alert/info_alert_dialog.dart';
 import 'package:gym_tracker/ui/views/home/home_view.dart';
-import 'package:gym_tracker/ui/views/maintenance/maintenance_view.dart';
 import 'package:gym_tracker/ui/views/startup/startup_view.dart';
 import 'package:gym_tracker/ui/views/workout_details/workout_details_view.dart';
 import 'package:stacked/stacked_annotations.dart';

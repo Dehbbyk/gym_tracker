@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:gym_tracker/ui/common/app_colors.dart';
 import 'package:stacked/stacked.dart';
@@ -54,7 +56,7 @@ class ReportIssuesView extends StackedView<ReportIssuesViewModel> {
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
                     borderSide:
-                        const BorderSide(width: 0.5, color: kcPrimaryColor),
+                    const BorderSide(width: 0.5, color: kcPrimaryColor),
                   ),
                 ),
                 maxLines: 5,
@@ -81,7 +83,7 @@ class ReportIssuesView extends StackedView<ReportIssuesViewModel> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(
-                      "Upload ID",
+                      "Upload Image",
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w500,
@@ -90,32 +92,40 @@ class ReportIssuesView extends StackedView<ReportIssuesViewModel> {
                     const SizedBox(
                       height: 8,
                     ),
-                    Container(
-                      width: 342,
-                      height: 148,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: kcPrimaryColor),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      padding: const EdgeInsets.all(16),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset("assets/images/upload_icon.png"),
-                          const Wrap(
-                            children: [
-                              Text(
-                                'Drag and drop or ',
-                                style: TextStyle(
-                                    fontSize: 14, color: kcTextColor2),
-                              ),
-                              Text(
-                                "Browse",
-                                style: TextStyle(color: kcPrimaryColor),
-                              ),
-                            ],
-                          ),
-                        ],
+                    GestureDetector(
+                      onTap: viewModel.pickImage,
+                      child: Container(
+                        width: 342,
+                        height: 148,
+                        decoration: BoxDecoration(
+                          border: Border.all(color: kcPrimaryColor),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        padding: const EdgeInsets.all(16),
+                        child: viewModel.selectedImage != null
+                            ? Image.file(
+                          File(viewModel.selectedImage!.path),
+                          fit: BoxFit.cover,
+                        )
+                            : Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset("assets/images/upload_icon.png"),
+                            const Wrap(
+                              children: [
+                                Text(
+                                  'Drag and drop or ',
+                                  style: TextStyle(
+                                      fontSize: 14, color: kcTextColor2),
+                                ),
+                                Text(
+                                  "Browse",
+                                  style: TextStyle(color: kcPrimaryColor),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                     const SizedBox(height: 8),
@@ -131,7 +141,7 @@ class ReportIssuesView extends StackedView<ReportIssuesViewModel> {
               const SizedBox(height: 16),
               Center(
                 child: GestureDetector(
-                  onTap: () {},
+                  onTap: viewModel.showDialog,
                   child: Container(
                     height: 40,
                     decoration: BoxDecoration(
@@ -153,61 +163,6 @@ class ReportIssuesView extends StackedView<ReportIssuesViewModel> {
               ),
             ],
           )),
-    );
-  }
-
-  Center buildNoReportScreen() {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.asset("assets/images/no_report.png"),
-          const SizedBox(
-            height: 24,
-          ),
-          const Text(
-            "No Report",
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w700,
-            ),
-          ),
-          const SizedBox(
-            height: 8,
-          ),
-          const Text(
-            "You currently do not have any equipment report. Click on the button bellow to start",
-            style: TextStyle(
-              fontSize: 16,
-              color: kcLightGrey,
-            ),
-            textAlign: TextAlign.center,
-          ),
-          const SizedBox(
-            height: 24,
-          ),
-          GestureDetector(
-            onTap: () {},
-            child: Container(
-              height: 40,
-              decoration: BoxDecoration(
-                color: kcPrimaryColor,
-                borderRadius: BorderRadius.circular(6),
-              ),
-              child: const Center(
-                child: Text(
-                  "Log Workout",
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                    color: Color(0xFFFFFFFF),
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
     );
   }
 

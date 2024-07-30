@@ -41,7 +41,9 @@ To set up the project locally, follow these steps:
 <img width= "186" alt="Scanning NFC Screen" src= "https://github.com/user-attachments/assets/c1c502dd-9eff-4ec9-8029-cb542ee5961c">
 
 5. **Reporting Issue**
-   ![report issue](https://github.com/user-attachments/assets/6f4b4865-f2cf-4c3e-bd64-da4ec4b7687c)
+  <img width= "186" alt="Scanning NFC Screen" src= "https://github.com/user-attachments/assets/a3160d7e-4b99-43c0-9a0f-fb9fa89b2a8b">
+
+   
 
 
 

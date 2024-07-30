@@ -9,10 +9,10 @@ class WorkoutDetailsView extends StackedView<WorkoutDetailsViewModel> {
 
   @override
   Widget builder(
-      BuildContext context,
-      WorkoutDetailsViewModel viewModel,
-      Widget? child,
-      ) {
+    BuildContext context,
+    WorkoutDetailsViewModel viewModel,
+    Widget? child,
+  ) {
     if (workout == null) {
       return Center(child: Text("No workout details available"));
     }

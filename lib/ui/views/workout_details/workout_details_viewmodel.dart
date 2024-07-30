@@ -30,7 +30,8 @@ class WorkoutDetailsViewModel extends BaseViewModel {
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text('Delete Logged Workout'),
-          content: Text('Are you sure you want to delete this logged workout? This action cannot be undone.'),
+          content: Text(
+              'Are you sure you want to delete this logged workout? This action cannot be undone.'),
           actions: [
             TextButton(
               onPressed: () {
@@ -47,7 +48,7 @@ class WorkoutDetailsViewModel extends BaseViewModel {
                 backgroundColor: Colors.red, // Button color
               ),
               child: Text(
-                  'Delete',
+                'Delete',
                 style: TextStyle(color: Colors.white),
               ),
             ),
@@ -62,30 +63,29 @@ class WorkoutDetailsViewModel extends BaseViewModel {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Image.asset('assets/icons/images/success.png', height: 100),
-              Text(
-                'Log workout deleted',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
-              ),
-              SizedBox(height: 10),
-              Text(
-                'Well-done your logged workout has been deleted.',
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
-              ),
-              SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                  // Navigate to Workout History or other actions
-                },
-                child: Text('Return to New Log Workout'),
-              ),
-            ],
-          )
-        );
+            content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Image.asset('assets/icons/images/success.png', height: 100),
+            Text(
+              'Log workout deleted',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+            ),
+            SizedBox(height: 10),
+            Text(
+              'Well-done your logged workout has been deleted.',
+              style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context);
+                // Navigate to Workout History or other actions
+              },
+              child: Text('Return to New Log Workout'),
+            ),
+          ],
+        ));
       },
     );
   }

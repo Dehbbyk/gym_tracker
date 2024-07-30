@@ -1,38 +1,111 @@
 import 'package:flutter/material.dart';
+import 'package:gym_tracker/app/app.dialogs.dart';
+import 'package:gym_tracker/app/app.locator.dart';
+import 'package:gym_tracker/services/log_workout_service.dart';
 import 'package:stacked/stacked.dart';
+import 'package:stacked_services/stacked_services.dart';
+
+import '../../../core/models/log_workout_model.dart';
 
 class LogWorkoutViewModel extends BaseViewModel {
-  String _duration = '';
-  String _typeOfExercise = '';
-  String _weight = '';
-  String _repetition = '';
+  final formKey = GlobalKey<FormState>();
 
-  String get duration => _duration;
-  String get typeOfExercise => _typeOfExercise;
-  String get weight => _weight;
-  String get repetition => _repetition;
+  final _dialogService = locator<DialogService>();
+  final _logWorkOutService = locator<LogWorkoutService>();
+
+  final TextEditingController durationController = TextEditingController();
+  final TextEditingController typeOfExerciseController =
+      TextEditingController();
+  final TextEditingController weightController = TextEditingController();
+  final TextEditingController setController = TextEditingController();
+  final TextEditingController dateController = TextEditingController();
+
+  String? selectedExercise;
+  List<String> exercises = [
+    'Running',
+    'Swimming',
+    'Cycling',
+    'Weightlifting',
+    "Bench Press",
+    "Treadmill Run",
+    "Squats",
+    "Lat Pulldown",
+  ];
 
   void setDuration(String value) {
-    _duration = value;
-    notifyListeners();
+    // Handle duration value change
   }
 
-  void setTypeOfExercise(String value) {
-    _typeOfExercise = value;
+  void setTypeOfExercise(String? value) {
+    selectedExercise = value;
     notifyListeners();
   }
 
   void setWeight(String value) {
-    _weight = value;
-    notifyListeners();
+    // Handle weight value change
   }
 
-  void setRepetition(String value) {
-    _repetition = value;
-    notifyListeners();
+  void setSet(String value) {
+    // Handle set value change
+  }
+
+  void setDate(String value) {
+    // Handle date value change
+  }
+
+  Future<void> pickDate(BuildContext context) async {
+    final DateTime? pickedDate = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2101),
+    );
+
+    if (pickedDate != null) {
+      dateController.text = pickedDate.toIso8601String().split('T').first;
+      notifyListeners();
+    }
+  }
+
+  Future<void> pickDuration(BuildContext context) async {
+    final TimeOfDay? pickedTime = await showTimePicker(
+      context: context,
+      initialTime: TimeOfDay.now(),
+    );
+
+    if (pickedTime != null) {
+      durationController.text =
+          '${pickedTime.hour} hours ${pickedTime.minute} minutes';
+      notifyListeners();
+    }
   }
 
   void saveWorkout() {
-    // Save the workout data logic
+    final logWorkout = LogWorkoutModel(
+      duration: durationController.text,
+      typeOfExercise: selectedExercise!,
+      weight: weightController.text,
+      set: setController.text,
+      date: DateTime.parse(dateController.text),
+    );
+
+    _logWorkOutService.saveLogWorkout(logWorkout);
+    showDialog();
+  }
+
+  void showDialog() {
+    _dialogService.showCustomDialog(
+      variant: DialogType.logWorkoutSaved,
+    );
+  }
+
+  @override
+  void dispose() {
+    durationController.dispose();
+    typeOfExerciseController.dispose();
+    weightController.dispose();
+    setController.dispose();
+    dateController.dispose();
+    super.dispose();
   }
 }

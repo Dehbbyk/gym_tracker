@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:gym_tracker/app/app.bottomsheets.dart';
 import 'package:gym_tracker/app/app.dialogs.dart';
 import 'package:gym_tracker/app/app.locator.dart';
@@ -19,6 +20,9 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        textTheme: GoogleFonts.interTextTheme(),
+      ),
       debugShowCheckedModeBanner: false,
       initialRoute: Routes.startupView,
       onGenerateRoute: StackedRouter().onGenerateRoute,

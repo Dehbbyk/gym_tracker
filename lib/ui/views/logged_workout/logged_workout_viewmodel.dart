@@ -18,15 +18,20 @@ class LoggedWorkoutViewModel extends BaseViewModel {
 
   List<WorkoutLog> _filteredLogs = [];
 
-  List<WorkoutLog> get workoutLogs => _filteredLogs.isEmpty ? _workoutLogs : _filteredLogs;
+  List<WorkoutLog> get workoutLogs =>
+      _filteredLogs.isEmpty ? _workoutLogs : _filteredLogs;
 
   void searchWorkouts(String query) {
-    _filteredLogs = _workoutLogs.where((log) => log.type.toLowerCase().contains(query.toLowerCase())).toList();
+    _filteredLogs = _workoutLogs
+        .where((log) => log.type.toLowerCase().contains(query.toLowerCase()))
+        .toList();
     notifyListeners();
   }
 
   void filterByDate(DateTime selectedDate) {
-    _filteredLogs = _workoutLogs.where((log) => log.date.isAtSameMomentAs(selectedDate)).toList();
+    _filteredLogs = _workoutLogs
+        .where((log) => log.date.isAtSameMomentAs(selectedDate))
+        .toList();
     notifyListeners();
   }
 }

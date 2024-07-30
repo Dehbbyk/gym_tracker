@@ -39,10 +39,12 @@ class OnboardingViewModel extends BaseViewModel {
       notifyListeners();
     } else {
       _navigationService.navigateTo(Routes.nfcView);
+      _navigationService.replaceWith(Routes.dashboardView);
     }
   }
 
   void skip() {
     _navigationService.navigateTo(Routes.nfcView);
+    _navigationService.replaceWith(Routes.dashboardView);
   }
 }

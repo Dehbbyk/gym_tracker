@@ -1,3 +1,4 @@
+
 import 'package:gym_tracker/app/app.router.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
@@ -29,3 +30,7 @@ class MaintenanceReportViewModel extends BaseViewModel {
     notifyListeners();
   }
 }
+
+
+
+// class MaintenanceReportViewModel extends BaseViewModel {}

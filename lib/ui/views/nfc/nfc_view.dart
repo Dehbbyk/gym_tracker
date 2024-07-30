@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gym_tracker/ui/common/app_colors.dart';
 import 'package:stacked/stacked.dart';
-
 import 'nfc_viewmodel.dart';
 
 class NfcView extends StackedView<NfcViewModel> {
@@ -14,6 +13,18 @@ class NfcView extends StackedView<NfcViewModel> {
     NfcViewModel viewModel,
     Widget? child,
   ) {
+    // Example JSON data to write to the NFC tag
+    Map<String, String> jsonData = {
+      "equipmentName": "Treadmill Adult Tool",
+      "description": "A treadmill is a stationary exercise machine...",
+      "exerciseInstructions":
+          "Preparation: Ensure the treadmill is properly set up...",
+      "safetyTips":
+          "Safety Clip: Always attach the safety clip to your clothing...",
+      "watchVideo": "a youtube gym link",
+      "studySlide": "a blog or sth."
+    };
+
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
       extendBodyBehindAppBar: true,
@@ -102,8 +113,5 @@ class NfcView extends StackedView<NfcViewModel> {
   }
 
   @override
-  NfcViewModel viewModelBuilder(
-    BuildContext context,
-  ) =>
-      NfcViewModel();
+  NfcViewModel viewModelBuilder(BuildContext context) => NfcViewModel();
 }

@@ -21,7 +21,7 @@ class DashboardView extends StackedView<DashboardViewModel> {
         children: viewModel.widgetOptions,
       ),
       bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>  [
+        items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.dashboard),
             label: 'Details',

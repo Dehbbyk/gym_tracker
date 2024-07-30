@@ -15,7 +15,7 @@ class DashboardViewModel extends ReactiveViewModel {
     const EquipmentDetailView(),
     const NfcView(),
     const MaintenanceView(),
-   const AllWorkoutView(),
+    const AllWorkoutView(),
   ];
 
   int get selectedIndex => _appService.selectedIndex;

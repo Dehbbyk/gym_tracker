@@ -22,14 +22,16 @@ class EquipmentDetailView extends StackedView<EquipmentDetailViewModel> {
         surfaceTintColor: Theme.of(context).colorScheme.background,
         leading: Padding(
           padding: const EdgeInsets.only(left: 24),
-          child: Row(
-            children: [
-              SvgPicture.asset(
-                "assets/icons/arrow_left.svg",
-                width: 24,
-                height: 24,
-              ),
-            ],
+          child: GestureDetector(
+            child: Row(
+              children: [
+                SvgPicture.asset(
+                  "assets/icons/arrow_left.svg",
+                  width: 24,
+                  height: 24,
+                ),
+              ],
+            ),
           ),
         ),
         centerTitle: true,
@@ -92,22 +94,25 @@ class EquipmentDetailView extends StackedView<EquipmentDetailViewModel> {
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
                   ),
                   const Spacer(),
-                  ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: kcPrimaryColor,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(6),
-                        ),
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 16.5, vertical: 8),
-                        elevation: 0),
-                    child: const Text(
-                      "Log workout",
-                      style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white),
+                  SizedBox(
+                    height: 33,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: kcPrimaryColor,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(6),
+                          ),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 16.5, vertical: 4),
+                          elevation: 0),
+                      child: const Text(
+                        "Log workout",
+                        style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white),
+                      ),
                     ),
                   ),
                 ],
@@ -218,10 +223,7 @@ class ExpansionTileWidget extends StatelessWidget {
         childrenPadding: EdgeInsets.zero,
         title: Text(
           title,
-          style: const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w600,
-          ),
+          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
         ),
         children: content,
       ),

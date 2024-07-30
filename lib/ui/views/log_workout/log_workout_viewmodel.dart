@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gym_tracker/app/app.dialogs.dart';
 import 'package:gym_tracker/app/app.locator.dart';
+import 'package:gym_tracker/app/app.logger.dart';
 import 'package:gym_tracker/services/log_workout_service.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
@@ -11,11 +12,11 @@ class LogWorkoutViewModel extends BaseViewModel {
   final formKey = GlobalKey<FormState>();
 
   final _dialogService = locator<DialogService>();
-  final _logWorkOutService = locator<LogWorkoutService>();
+  final _logWorkoutService = locator<LogWorkoutService>();
+  final logger = getLogger("LogWorkoutViewModel");
 
   final TextEditingController durationController = TextEditingController();
-  final TextEditingController typeOfExerciseController =
-      TextEditingController();
+  final TextEditingController typeOfExerciseController = TextEditingController();
   final TextEditingController weightController = TextEditingController();
   final TextEditingController setController = TextEditingController();
   final TextEditingController dateController = TextEditingController();
@@ -75,12 +76,14 @@ class LogWorkoutViewModel extends BaseViewModel {
 
     if (pickedTime != null) {
       durationController.text =
-          '${pickedTime.hour} hours ${pickedTime.minute} minutes';
+      '${pickedTime.hour} hours ${pickedTime.minute} minutes';
       notifyListeners();
     }
   }
 
   void saveWorkout() {
+    logger.i("Saving workout...");
+
     final logWorkout = LogWorkoutModel(
       duration: durationController.text,
       typeOfExercise: selectedExercise!,
@@ -88,8 +91,11 @@ class LogWorkoutViewModel extends BaseViewModel {
       set: setController.text,
       date: DateTime.parse(dateController.text),
     );
+    logger.i(logWorkout);
 
-    _logWorkOutService.saveLogWorkout(logWorkout);
+    _logWorkoutService.saveLogWorkout(logWorkout);
+    logger.i("Workout saved.");
+
     showDialog();
   }
 

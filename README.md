@@ -6,9 +6,9 @@ The Gym Tracker is a mobile application that allows users to track the usage of 
 
 1. **NFC Tag Scanning**: Easily log workouts by scanning NFC tags attached to gym equipment.
 2. **Workout Logging**: Track the usage of each piece of equipment, including duration and frequency.
-3. **Equipment Details**: Access detailed equipment information, exercise instructions and tips for using the equipment safely and effectively.
+3. **Equipment Details**: Access detailed equipment information, exercise instructions, and tips for using the equipment safely and effectively.
 4. **Maintenance Tracking**: View maintenance schedules and report equipment issues.
-5. **Maintenance Report**: View status and download maintenance history/report of each equipment and report equipment issues.
+5. **Maintenance Report**: View each equipment's status and maintenance history/report and report equipment issues.
 
 ## Installation
 
@@ -21,23 +21,28 @@ To set up the project locally, follow these steps:
 ## Usage
 
 1. **Scan NFC tags**: Approach a tagged piece of gym equipment and scan the NFC tag to log your workout.
-2. **View equipment details**: Access detailed information about the equipment as well as instructions on how to use the equipment.
+2. **View equipment details**: Access detailed information about the equipment and instructions on how to use the equipment.
 3. **Log Workout**: This shows information about the duration, type of exercise, weight, and number of reps.
+4. **Report Issue**: This allows users to report abnormality on the equipment.
 5. **Check maintenance status**: View and download the maintenance report or report any issues with the equipment.
 
 ## Screenshots
 1. **Log Workout Screen**
-<img width="188" alt="Log Workout Screen" src="https://github.com/user-attachments/assets/309b8df9-d17a-45f4-8ad9-ba75af15ae30">
+<img[log workout](https://github.com/user-attachments/assets/9dabb303-669c-4b15-b0f1-05abd9e00f49)>
 
 
 2. **Logged Workout Screen**
-<img width="186" alt="Logged Workout" src="https://github.com/user-attachments/assets/0e045485-ef5b-453e-82e4-e16250bc5707">
+<img >
 
 3. **Equipment Details Screen**
 <img width= "186" alt="Equipment Details Screen" src= "https://github.com/user-attachments/assets/c83b837d-65d4-4643-ba2d-1d5b8843f53e">
 
 4. **Scanning NFC Screen**
 <img width= "186" alt="Scanning NFC Screen" src= "https://github.com/user-attachments/assets/c1c502dd-9eff-4ec9-8029-cb542ee5961c">
+
+5. **Reporting Issue**
+   ![report issue](https://github.com/user-attachments/assets/6f4b4865-f2cf-4c3e-bd64-da4ec4b7687c)
+
 
 
 

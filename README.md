@@ -28,8 +28,7 @@ To set up the project locally, follow these steps:
 
 ## Screenshots
 1. **Log Workout Screen**
-<img[log workout](https://github.com/user-attachments/assets/9dabb303-669c-4b15-b0f1-05abd9e00f49)>
-
+<img width= "186" alt="Log Workout Screen" src= "https://github.com/user-attachments/assets/269e9e6b-7510-4435-b1ad-763930fb4855">
 
 2. **Logged Workout Screen**
 <img >
@@ -41,7 +40,9 @@ To set up the project locally, follow these steps:
 <img width= "186" alt="Scanning NFC Screen" src= "https://github.com/user-attachments/assets/c1c502dd-9eff-4ec9-8029-cb542ee5961c">
 
 5. **Reporting Issue**
-   ![report issue](https://github.com/user-attachments/assets/6f4b4865-f2cf-4c3e-bd64-da4ec4b7687c)
+  <img width= "186" alt="Reporting Issues" src= "https://github.com/user-attachments/assets/a3160d7e-4b99-43c0-9a0f-fb9fa89b2a8b">
+
+   
 
 
 

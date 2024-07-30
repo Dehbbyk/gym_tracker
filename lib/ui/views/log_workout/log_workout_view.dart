@@ -8,10 +8,10 @@ class LogWorkoutView extends StackedView<LogWorkoutViewModel> {
 
   @override
   Widget builder(
-    BuildContext context,
-    LogWorkoutViewModel viewModel,
-    Widget? child,
-  ) {
+      BuildContext context,
+      LogWorkoutViewModel viewModel,
+      Widget? child,
+      ) {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -126,13 +126,8 @@ class LogWorkoutView extends StackedView<LogWorkoutViewModel> {
               ),
               const SizedBox(height: 20),
               CustomButton(
-                buttonText: "Save Workout",
-                onPressed: () {
-                  if (viewModel.formKey.currentState!.validate()) {
-                    viewModel.formKey.currentState!.save();
-                    viewModel.showDialog();
-                  }
-                },
+                buttonText: 'Save Workout',
+                onPressed: viewModel.saveWorkout,
               ),
             ],
           ),
@@ -145,6 +140,7 @@ class LogWorkoutView extends StackedView<LogWorkoutViewModel> {
   LogWorkoutViewModel viewModelBuilder(BuildContext context) =>
       LogWorkoutViewModel();
 }
+
 
 class CustomTextLabel extends StatelessWidget {
   final String text;

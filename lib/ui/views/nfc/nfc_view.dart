@@ -83,29 +83,29 @@ class NfcView extends StackedView<NfcViewModel> {
               ),
               textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 24),
-            SizedBox(
-              width: double.infinity,
-              height: 40,
-              child: ElevatedButton(
-                onPressed: () => viewModel.equipmentDetailsNavigation(),
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: kcPrimaryColor,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(6),
-                    ),
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 16.5, vertical: 8),
-                    elevation: 0),
-                child: const Text(
-                  "View Equipment Detail",
-                  style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.white),
-                ),
-              ),
-            ),
+            // const SizedBox(height: 24),
+            // SizedBox(
+            //   width: double.infinity,
+            //   height: 40,
+            //   child: ElevatedButton(
+            //     onPressed: () => viewModel.equipmentDetailsNavigation(),
+            //     style: ElevatedButton.styleFrom(
+            //         backgroundColor: kcPrimaryColor,
+            //         shape: RoundedRectangleBorder(
+            //           borderRadius: BorderRadius.circular(6),
+            //         ),
+            //         padding: const EdgeInsets.symmetric(
+            //             horizontal: 16.5, vertical: 8),
+            //         elevation: 0),
+            //     child: const Text(
+            //       "View Equipment Detail",
+            //       style: TextStyle(
+            //           fontSize: 14,
+            //           fontWeight: FontWeight.w600,
+            //           color: Colors.white),
+            //     ),
+            //   ),
+            // ),
           ],
         ),
       ),
@@ -114,4 +114,12 @@ class NfcView extends StackedView<NfcViewModel> {
 
   @override
   NfcViewModel viewModelBuilder(BuildContext context) => NfcViewModel();
+
+  @override
+  void onViewModelReady(NfcViewModel viewModel) {
+    super.onViewModelReady(viewModel);
+  }
+//    onViewModelReady: (viewModel) {
+//   viewModel.init();
+// }
 }

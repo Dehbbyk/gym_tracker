@@ -15,9 +15,7 @@ class OnboardingSlide extends StatelessWidget {
           image: AssetImage(model.onboardingImgUrl),
           height: 410,
         ),
-        const SizedBox(
-          height: 80,
-        ),
+        const SizedBox(height: 80),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24.0),
           child: Text(
@@ -37,7 +35,6 @@ class OnboardingSlide extends StatelessWidget {
             style: const TextStyle(
                 fontWeight: FontWeight.w400, fontSize: 18, color: kcTextColor2),
             textAlign: TextAlign.center,
-
           ),
         ),
       ],

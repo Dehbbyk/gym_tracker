@@ -33,6 +33,9 @@ Log Workout Screen
 <img width="186" alt="Logged Workout" src="https://github.com/user-attachments/assets/0e045485-ef5b-453e-82e4-e16250bc5707">
 Logged Workout Screen
 
+<img width= "186" alt="Equipment Details Screen" src= "https://github.com/user-attachments/assets/c83b837d-65d4-4643-ba2d-1d5b8843f53e">
+Equipment Details Screen
+
 
 
 ## Contributing

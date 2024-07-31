@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gym_tracker/ui/common/app_colors.dart';
 import 'package:gym_tracker/ui/common/ui_helpers.dart';
+import 'package:gym_tracker/ui/widgets/custom_button.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
@@ -28,7 +29,7 @@ class ConfirmDeleteDialog extends StackedView<ConfirmDeleteDialogModel> {
         content: Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Image.asset('assets/icons/images/success.png', height: 100),
+        Image.asset('assets/images/success.png', height: 100),
         const Text(
           'Log workout deleted',
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
@@ -36,15 +37,13 @@ class ConfirmDeleteDialog extends StackedView<ConfirmDeleteDialogModel> {
         const SizedBox(height: 10),
         const Text(
           'Well-done your logged workout has been deleted.',
+          textAlign: TextAlign.center,
           style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
         ),
         const SizedBox(height: 20),
-        ElevatedButton(
-          onPressed: () {
-            Navigator.pop(context);
-            // Navigate to Workout History or other actions
-          },
-          child: const Text('Return to New Log Workout'),
+        CustomButton(
+          onPressed: viewModel.navigateToLoggedWorkouts,
+          buttonText: 'Return to Logged Workouts',
         ),
       ],
     ));

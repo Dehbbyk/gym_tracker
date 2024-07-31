@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gym_tracker/ui/common/app_colors.dart';
 import 'package:stacked/stacked.dart';
 import 'workout_details_viewmodel.dart';
 
@@ -99,9 +100,30 @@ class WorkoutDetailsView extends StackedView<WorkoutDetailsViewModel> {
               ),
             ),
             const SizedBox(height: 10),
-            OutlinedButton(
-              onPressed: viewModel.editWorkout,
-              child: const Text('Edit Workout'),
+            SizedBox(
+              height: 40,
+              width: double.infinity,
+              child: OutlinedButton(
+                onPressed: () => viewModel.editWorkout(),
+                style: OutlinedButton.styleFrom(
+                    side: const BorderSide(
+                      color: kcVeryLightGrey,
+                    ),
+                    // backgroundColor: kcPrimaryColor,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(6),
+                    ),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 16.5, vertical: 8),
+                    elevation: 0),
+                child: const Text(
+                  "Edit Workout",
+                  style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
+                      color: kcTextColor1),
+                ),
+              ),
             ),
           ],
         ),

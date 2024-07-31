@@ -21,4 +21,10 @@ class LogWorkoutService with ListenableServiceMixin {
     _selectedWorkout = workout;
     notifyListeners();
   }
+
+  void deleteWorkout(LogWorkoutModel workout) {
+    _logWorkouts.remove(workout);
+    logger.d("Deleted workout: ${workout.toString()}");
+    notifyListeners();
+  }
 }

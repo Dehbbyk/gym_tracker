@@ -27,17 +27,17 @@ To set up the project locally, follow these steps:
 5. **Check maintenance status**: View and download the maintenance report or report any issues with the equipment.
 
 ## Screenshots
-1. **Log Workout Screen**
-<img width= "186" alt="Log Workout Screen" src= "https://github.com/user-attachments/assets/269e9e6b-7510-4435-b1ad-763930fb4855">
+1. **Scanning NFC Screen**
+<img width= "186" alt="Scanning NFC Screen" src= "https://github.com/user-attachments/assets/c1c502dd-9eff-4ec9-8029-cb542ee5961c">
 
-2. **Logged Workout Screen**
-<img width= "186" alt="Logged Workout Screen" src= "https://github.com/user-attachments/assets/87e1fbfe-0d88-4661-b8db-23732b38539d">
-
-3. **Equipment Details Screen**
+2. **Equipment Details Screen**
 <img width= "186" alt="Equipment Details Screen" src= "https://github.com/user-attachments/assets/c83b837d-65d4-4643-ba2d-1d5b8843f53e">
 
-4. **Scanning NFC Screen**
-<img width= "186" alt="Scanning NFC Screen" src= "https://github.com/user-attachments/assets/c1c502dd-9eff-4ec9-8029-cb542ee5961c">
+3. **Log Workout Screen**
+<img width= "186" alt="Log Workout Screen" src= "https://github.com/user-attachments/assets/269e9e6b-7510-4435-b1ad-763930fb4855">
+
+4. **Logged Workout Screen**
+<img width= "186" alt="Logged Workout Screen" src= "https://github.com/user-attachments/assets/87e1fbfe-0d88-4661-b8db-23732b38539d">
 
 5. **Reporting Issue**
   <img width= "186" alt="Reporting Issues" src= "https://github.com/user-attachments/assets/a3160d7e-4b99-43c0-9a0f-fb9fa89b2a8b">

@@ -31,7 +31,7 @@ To set up the project locally, follow these steps:
 <img width= "186" alt="Log Workout Screen" src= "https://github.com/user-attachments/assets/269e9e6b-7510-4435-b1ad-763930fb4855">
 
 2. **Logged Workout Screen**
-<img >
+<img width= "186" alt="Logged Workout Screen" src= "https://github.com/user-attachments/assets/87e1fbfe-0d88-4661-b8db-23732b38539d">
 
 3. **Equipment Details Screen**
 <img width= "186" alt="Equipment Details Screen" src= "https://github.com/user-attachments/assets/c83b837d-65d4-4643-ba2d-1d5b8843f53e">

@@ -1,92 +1,21 @@
-import 'package:flutter/material.dart';
+import 'package:gym_tracker/app/app.locator.dart';
+import 'package:gym_tracker/core/models/log_workout_model.dart';
+import 'package:gym_tracker/services/log_workout_service.dart';
 import 'package:stacked/stacked.dart';
+import 'package:stacked_services/stacked_services.dart';
 
-class Workout {
-  final String type;
-  final int sets;
-  final DateTime date;
-  final int duration;
-  final String image;
-  final String reps;
-
-  Workout({
-    required this.type,
-    required this.sets,
-    required this.date,
-    required this.duration,
-    required this.image,
-    required this.reps,
-  });
-}
+import '../../../app/app.dialogs.dart';
 
 class WorkoutDetailsViewModel extends BaseViewModel {
-  final Workout workout;
+  final LogWorkoutService _logWorkoutService = locator<LogWorkoutService>();
+  final _dialogService = locator<DialogService>();
 
-  WorkoutDetailsViewModel({required this.workout});
+  LogWorkoutModel? get loggedWorkOutDetails =>
+      _logWorkoutService.selectedWorkout;
 
-  void deleteWorkout(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('Delete Logged Workout'),
-          content: Text(
-              'Are you sure you want to delete this logged workout? This action cannot be undone.'),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop(); // Close the dialog
-              },
-              child: Text('Cancel'),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).pop(); // Close the dialog
-                _confirmDelete(context);
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.red, // Button color
-              ),
-              child: Text(
-                'Delete',
-                style: TextStyle(color: Colors.white),
-              ),
-            ),
-          ],
-        );
-      },
-    );
-  }
-
-  void _confirmDelete(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-            content: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Image.asset('assets/icons/images/success.png', height: 100),
-            Text(
-              'Log workout deleted',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
-            ),
-            SizedBox(height: 10),
-            Text(
-              'Well-done your logged workout has been deleted.',
-              style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
-            ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context);
-                // Navigate to Workout History or other actions
-              },
-              child: Text('Return to New Log Workout'),
-            ),
-          ],
-        ));
-      },
+  void showDialog() {
+    _dialogService.showCustomDialog(
+      variant: DialogType.deleteWorkout,
     );
   }
 

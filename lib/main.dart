@@ -4,10 +4,13 @@ import 'package:gym_tracker/app/app.bottomsheets.dart';
 import 'package:gym_tracker/app/app.dialogs.dart';
 import 'package:gym_tracker/app/app.locator.dart';
 import 'package:gym_tracker/app/app.router.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
   await setupLocator();
   setupDialogUi();
   setupBottomSheetUi();

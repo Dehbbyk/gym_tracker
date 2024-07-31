@@ -13,10 +13,10 @@ class MaintenanceReportView extends StackedView<MaintenanceReportViewModel> {
 
   @override
   Widget builder(
-      BuildContext context,
-      MaintenanceReportViewModel viewModel,
-      Widget? child,
-      ) {
+    BuildContext context,
+    MaintenanceReportViewModel viewModel,
+    Widget? child,
+  ) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
@@ -60,7 +60,7 @@ class MaintenanceReportView extends StackedView<MaintenanceReportViewModel> {
                       slideTransform: const ZoomOutSlideTransform(),
                       children: List.generate(
                         viewModel.onboardingNotes.length,
-                            (index) => Image.asset(
+                        (index) => Image.asset(
                           viewModel.onboardingNotes[index],
                           width: double.infinity,
                           fit: BoxFit.cover,
@@ -98,10 +98,10 @@ class MaintenanceReportView extends StackedView<MaintenanceReportViewModel> {
                 children: [
                   const Text("Cardio",
                       style:
-                      TextStyle(fontSize: 12, fontWeight: FontWeight.w400)),
+                          TextStyle(fontSize: 12, fontWeight: FontWeight.w400)),
                   Container(
                     padding:
-                    const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+                        const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
                     decoration: BoxDecoration(
                       color: kcSuccessTint,
                       borderRadius: BorderRadius.circular(16),
@@ -120,7 +120,7 @@ class MaintenanceReportView extends StackedView<MaintenanceReportViewModel> {
                 children: [
                   Text("4.5",
                       style:
-                      TextStyle(fontSize: 12, fontWeight: FontWeight.w500)),
+                          TextStyle(fontSize: 12, fontWeight: FontWeight.w500)),
                 ],
               ),
               const SizedBox(height: 14),
@@ -146,7 +146,7 @@ class MaintenanceReportView extends StackedView<MaintenanceReportViewModel> {
                   const Spacer(),
                   Container(
                     padding:
-                    const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+                        const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
                     decoration: BoxDecoration(
                       color: kcSuccessTint,
                       borderRadius: BorderRadius.circular(16),
@@ -220,8 +220,8 @@ class MaintenanceReportView extends StackedView<MaintenanceReportViewModel> {
 
   @override
   MaintenanceReportViewModel viewModelBuilder(
-      BuildContext context,
-      ) =>
+    BuildContext context,
+  ) =>
       MaintenanceReportViewModel();
 }
 

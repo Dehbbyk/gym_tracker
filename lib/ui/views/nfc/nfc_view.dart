@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:gym_tracker/ui/common/app_colors.dart';
+import 'package:gym_tracker/services/nfc_service.dart';
+import 'package:gym_tracker/ui/widgets/custom_button.dart';
 import 'package:stacked/stacked.dart';
 import 'nfc_viewmodel.dart';
 
@@ -26,101 +26,74 @@ class NfcView extends StackedView<NfcViewModel> {
     };
 
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background,
-      extendBodyBehindAppBar: true,
       appBar: AppBar(
-        surfaceTintColor: Theme.of(context).colorScheme.background,
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 24),
-          child: GestureDetector(
-            onTap: () => viewModel.goBack(),
-            child: Row(
-              children: [
-                SvgPicture.asset(
-                  "assets/icons/arrow_left.svg",
-                  width: 24,
-                  height: 24,
-                ),
-              ],
-            ),
-          ),
-        ),
-        centerTitle: true,
-        title: const Text(
-          "Scanning NFC",
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-        ),
+        title: const Text("Scanning NFC"),
       ),
-      body: Container(
-        width: double.infinity,
-        padding: const EdgeInsets.only(left: 16, right: 16),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(
-              width: 230,
-              height: 230,
-              child:
-                  Image.asset("assets/images/nfc_anime.gif", fit: BoxFit.cover),
-            ),
-            const SizedBox(height: 16),
-            const Text(
-              "Hold the Phone’s NFC Area close to the Tag",
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w700,
-                color: kcTextColor3,
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(24.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Image(
+                image: AssetImage("assets/images/nfc_anime.gif"),
+                height: 230,
+                width: 230,
               ),
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 8),
-            const Text(
-              "The NFC area is generally found near the camera on the back of the phone",
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w400,
-                color: kcTextColor3,
+              if (viewModel.isProcessing) CircularProgressIndicator(),
+              const Text(
+                "Hold the Phone’s NFC Area close to the Tag",
+                style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
               ),
-              textAlign: TextAlign.center,
-            ),
-            // const SizedBox(height: 24),
-            // SizedBox(
-            //   width: double.infinity,
-            //   height: 40,
-            //   child: ElevatedButton(
-            //     onPressed: () => viewModel.equipmentDetailsNavigation(),
-            //     style: ElevatedButton.styleFrom(
-            //         backgroundColor: kcPrimaryColor,
-            //         shape: RoundedRectangleBorder(
-            //           borderRadius: BorderRadius.circular(6),
-            //         ),
-            //         padding: const EdgeInsets.symmetric(
-            //             horizontal: 16.5, vertical: 8),
-            //         elevation: 0),
-            //     child: const Text(
-            //       "View Equipment Detail",
-            //       style: TextStyle(
-            //           fontSize: 14,
-            //           fontWeight: FontWeight.w600,
-            //           color: Colors.white),
-            //     ),
-            //   ),
-            // ),
-          ],
+              const SizedBox(height: 8),
+              const Text(
+                "The NFC area is generally found near the camera on the back of the phone",
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 16),
+              CustomButton(
+                buttonText: "Scan",
+                onPressed: () =>
+                    viewModel.startNFCOperation(NFCOperation.read, null),
+              ),
+              CustomButton(
+                buttonText: "Write",
+                onPressed: () =>
+                    viewModel.startNFCOperation(NFCOperation.write, jsonData),
+              ),
+              if (viewModel.message.isNotEmpty && !viewModel.isProcessing)
+                Column(
+                  children: [
+                    Text(
+                      viewModel.message == "DONE"
+                          ? "Successfully Written"
+                          : viewModel.message,
+                      style: const TextStyle(
+                          fontWeight: FontWeight.w700, fontSize: 16),
+                    ),
+                    const SizedBox(height: 8),
+                    if (viewModel.message == "DONE")
+                      const Text(
+                        "Your exercise equipment data has been written successfully.",
+                        textAlign: TextAlign.center,
+                      ),
+                    if (viewModel.message == "DONE")
+                      CustomButton(
+                        buttonText: "View Equipment Details",
+                        onPressed: () {
+                          // Navigate to equipment details view
+                        },
+                      ),
+                  ],
+                ),
+            ],
+          ),
         ),
       ),
     );
   }
 
-
   @override
   NfcViewModel viewModelBuilder(BuildContext context) => NfcViewModel();
-
-  @override
-  void onViewModelReady(NfcViewModel viewModel) {
-    super.onViewModelReady(viewModel);
-  }
-//    onViewModelReady: (viewModel) {
-//   viewModel.init();
-// }
 }

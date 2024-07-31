@@ -56,7 +56,7 @@ class ReportIssuesView extends StackedView<ReportIssuesViewModel> {
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
                     borderSide:
-                    const BorderSide(width: 0.5, color: kcPrimaryColor),
+                        const BorderSide(width: 0.5, color: kcPrimaryColor),
                   ),
                 ),
                 maxLines: 5,
@@ -104,28 +104,28 @@ class ReportIssuesView extends StackedView<ReportIssuesViewModel> {
                         padding: const EdgeInsets.all(16),
                         child: viewModel.selectedImage != null
                             ? Image.file(
-                          File(viewModel.selectedImage!.path),
-                          fit: BoxFit.cover,
-                        )
+                                File(viewModel.selectedImage!.path),
+                                fit: BoxFit.cover,
+                              )
                             : Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset("assets/images/upload_icon.png"),
-                            const Wrap(
-                              children: [
-                                Text(
-                                  'Drag and drop or ',
-                                  style: TextStyle(
-                                      fontSize: 14, color: kcTextColor2),
-                                ),
-                                Text(
-                                  "Browse",
-                                  style: TextStyle(color: kcPrimaryColor),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Image.asset("assets/images/upload_icon.png"),
+                                  const Wrap(
+                                    children: [
+                                      Text(
+                                        'Drag and drop or ',
+                                        style: TextStyle(
+                                            fontSize: 14, color: kcTextColor2),
+                                      ),
+                                      Text(
+                                        "Browse",
+                                        style: TextStyle(color: kcPrimaryColor),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
                       ),
                     ),
                     const SizedBox(height: 8),

@@ -26,6 +26,8 @@ import 'package:gym_tracker/ui/views/maintenance_report/maintenance_report_view.
 import 'package:gym_tracker/ui/dialogs/log_workout_saved/log_workout_saved_dialog.dart';
 import 'package:gym_tracker/services/log_workout_service.dart';
 import 'package:gym_tracker/ui/dialogs/issue_reported/issue_reported_dialog.dart';
+import 'package:gym_tracker/ui/dialogs/delete_workout/delete_workout_dialog.dart';
+import 'package:gym_tracker/ui/dialogs/confirm_delete/confirm_delete_dialog.dart';
 // @stacked-import
 
 @StackedApp(
@@ -65,6 +67,8 @@ import 'package:gym_tracker/ui/dialogs/issue_reported/issue_reported_dialog.dart
     StackedDialog(classType: InfoAlertDialog),
     StackedDialog(classType: LogWorkoutSavedDialog),
     StackedDialog(classType: IssueReportedDialog),
+    StackedDialog(classType: DeleteWorkoutDialog),
+    StackedDialog(classType: ConfirmDeleteDialog),
 // @stacked-dialog
   ],
   logger: StackedLogger(),

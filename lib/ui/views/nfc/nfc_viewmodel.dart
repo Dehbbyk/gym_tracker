@@ -16,10 +16,6 @@ class NfcViewModel extends ReactiveViewModel {
     await _nfcService.startNFCOperation(nfcOperation: operation, data: data);
   }
 
-  Future<void> writeNFC() async{
-    
-  }
-
   void goBack() => _navigationService.back();
 
   void equipmentDetailsNavigation() =>

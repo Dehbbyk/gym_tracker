@@ -888,6 +888,15 @@ class MockLogWorkoutService extends _i1.Mock implements _i10.LogWorkoutService {
       );
 
   @override
+  void setSelectedWorkout(_i11.LogWorkoutModel? workout) => super.noSuchMethod(
+        Invocation.method(
+          #setSelectedWorkout,
+          [workout],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
   void listenToReactiveValues(List<dynamic>? reactiveValues) =>
       super.noSuchMethod(
         Invocation.method(

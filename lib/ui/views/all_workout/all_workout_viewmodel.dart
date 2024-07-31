@@ -6,8 +6,8 @@ import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 class AllWorkoutViewModel extends ReactiveViewModel {
-  final _navigationService = locator<NavigationService>();
-  final _logWorkOutService = locator<LogWorkoutService>();
+  final NavigationService _navigationService = locator<NavigationService>();
+  final LogWorkoutService _logWorkOutService = locator<LogWorkoutService>();
 
   List<LogWorkoutModel> get workOutLogs => _logWorkOutService.logWorkouts;
 
@@ -15,12 +15,13 @@ class AllWorkoutViewModel extends ReactiveViewModel {
     _navigationService.navigateTo(Routes.logWorkoutView);
   }
 
-  void equipmentDetailsNavigation() =>
-      _navigationService.navigateToEquipmentDetailView();
+  void workOutDetailsNavigation(LogWorkoutModel workout) {
+    _logWorkOutService.setSelectedWorkout(workout);
+    _navigationService.navigateTo(Routes.workoutDetailsView);
+  }
 
   void goBack() => _navigationService.back();
 
   @override
-  // TODO: implement listenableServices
   List<ListenableServiceMixin> get listenableServices => [_logWorkOutService];
 }

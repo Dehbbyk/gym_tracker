@@ -16,7 +16,8 @@ class LogWorkoutViewModel extends BaseViewModel {
   final logger = getLogger("LogWorkoutViewModel");
 
   final TextEditingController durationController = TextEditingController();
-  final TextEditingController typeOfExerciseController = TextEditingController();
+  final TextEditingController typeOfExerciseController =
+      TextEditingController();
   final TextEditingController weightController = TextEditingController();
   final TextEditingController setController = TextEditingController();
   final TextEditingController dateController = TextEditingController();
@@ -76,7 +77,7 @@ class LogWorkoutViewModel extends BaseViewModel {
 
     if (pickedTime != null) {
       durationController.text =
-      '${pickedTime.hour} hours ${pickedTime.minute} minutes';
+          '${pickedTime.hour} hours ${pickedTime.minute} minutes';
       notifyListeners();
     }
   }

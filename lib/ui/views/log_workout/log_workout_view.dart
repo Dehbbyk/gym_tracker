@@ -99,7 +99,6 @@ class LogWorkoutView extends StackedView<LogWorkoutViewModel> {
               CustomTextField(
                 controller: viewModel.setController,
                 hintText: 'Type here',
-                
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter the set';

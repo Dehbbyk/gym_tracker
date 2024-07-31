@@ -20,7 +20,8 @@ class ReportIssuesViewModel extends BaseViewModel {
   }
 
   Future<void> pickImage() async {
-    final pickedFile = await _imagePicker.pickImage(source: ImageSource.gallery);
+    final pickedFile =
+        await _imagePicker.pickImage(source: ImageSource.gallery);
     if (pickedFile != null) {
       _selectedImage = pickedFile;
       notifyListeners();

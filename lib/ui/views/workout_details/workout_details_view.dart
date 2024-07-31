@@ -3,9 +3,9 @@ import 'package:stacked/stacked.dart';
 import 'workout_details_viewmodel.dart';
 
 class WorkoutDetailsView extends StackedView<WorkoutDetailsViewModel> {
-  final Workout workout;
-
-  const WorkoutDetailsView({Key? key, required this.workout}) : super(key: key);
+  const WorkoutDetailsView({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget builder(
@@ -13,18 +13,18 @@ class WorkoutDetailsView extends StackedView<WorkoutDetailsViewModel> {
     WorkoutDetailsViewModel viewModel,
     Widget? child,
   ) {
-    if (workout == null) {
-      return Center(child: Text("No workout details available"));
+    if (viewModel.loggedWorkOutDetails == null) {
+      return const Center(child: Text("No workout details available"));
     }
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.pop(context);
           },
         ),
-        title: Center(
+        title: const Center(
           child: Text(
             'Logged Workout',
             style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
@@ -37,65 +37,71 @@ class WorkoutDetailsView extends StackedView<WorkoutDetailsViewModel> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.asset(
-              'assets/icons/images/${workout.image}',
+            Image(
+              image: AssetImage(
+                  'assets/images/equip_image_${switch (viewModel.loggedWorkOutDetails?.typeOfExercise) {
+                "Running" => "1",
+                "Swimming" => "2",
+                "Cycling" => "3",
+                "Weightlifting" => "4",
+                "Bench Press" => "2",
+                "Treadmill Run" => "4",
+                "Squats" => "1",
+                _ => "5"
+              }}.png'),
               width: double.infinity,
               height: 200,
               fit: BoxFit.cover,
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Text(
-              workout.type,
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              viewModel.loggedWorkOutDetails!.typeOfExercise,
+              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Text(
-              '${workout.date.toLocal()}'.split(' ')[0],
-              style: TextStyle(fontSize: 16, color: Colors.grey),
+              '${viewModel.loggedWorkOutDetails?.date.toLocal()}'.split(' ')[0],
+              style: const TextStyle(fontSize: 16, color: Colors.grey),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Row(
               children: [
-                Icon(Icons.fitness_center, size: 20),
-                SizedBox(width: 5),
+                const Icon(Icons.fitness_center, size: 20),
+                const SizedBox(width: 5),
                 Text(
-                  'Set: ${workout.sets}',
-                  style: TextStyle(fontSize: 16),
+                  'Set: ${viewModel.loggedWorkOutDetails?.set}',
+                  style: const TextStyle(fontSize: 16),
                 ),
-                SizedBox(width: 20),
-                Icon(Icons.timer, size: 20),
-                SizedBox(width: 5),
+                const SizedBox(width: 20),
+                const Icon(Icons.timer, size: 20),
+                const SizedBox(width: 5),
                 Text(
-                  '${workout.duration} mins',
-                  style: TextStyle(fontSize: 16),
+                  '${viewModel.loggedWorkOutDetails?.duration} ',
+                  style: const TextStyle(fontSize: 16),
                 ),
-                SizedBox(width: 20),
-                Icon(Icons.repeat, size: 20),
-                SizedBox(width: 5),
-                Text(
-                  'Reps: ${workout.reps}',
-                  style: TextStyle(fontSize: 16),
-                ),
+                const SizedBox(width: 20),
+                const Icon(Icons.repeat, size: 20),
+                const SizedBox(width: 5),
               ],
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () => viewModel.deleteWorkout(context),
+                onPressed: viewModel.showDialog,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.red, // Background color
                 ),
-                child: Text(
+                child: const Text(
                   'Delete Workout',
                   style: TextStyle(color: Colors.white),
                 ),
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             OutlinedButton(
               onPressed: viewModel.editWorkout,
-              child: Text('Edit Workout'),
+              child: const Text('Edit Workout'),
             ),
           ],
         ),
@@ -105,5 +111,5 @@ class WorkoutDetailsView extends StackedView<WorkoutDetailsViewModel> {
 
   @override
   WorkoutDetailsViewModel viewModelBuilder(BuildContext context) =>
-      WorkoutDetailsViewModel(workout: workout);
+      WorkoutDetailsViewModel();
 }

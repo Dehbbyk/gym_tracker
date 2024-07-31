@@ -22,12 +22,12 @@ class OnboardingViewModel extends BaseViewModel {
         onboardingImgUrl: "assets/images/onboarding_img1.png",
         onboardingTitle: "Access equipment guide",
         onboardingDescription:
-        "View detailed instructions and videos for each equipment."),
+            "View detailed instructions and videos for each equipment."),
     const OnboardingModel(
         onboardingImgUrl: "assets/images/onboarding_img3.png",
         onboardingTitle: "Track Your Progress",
         onboardingDescription:
-        "Keep a detailed log of your exercises and monitor your improvements over time.")
+            "Keep a detailed log of your exercises and monitor your improvements over time.")
   ];
 
   void changeNote(int index) {

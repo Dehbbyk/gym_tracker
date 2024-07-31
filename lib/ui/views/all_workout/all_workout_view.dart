@@ -103,6 +103,7 @@ class AllWorkoutView extends StackedView<AllWorkoutViewModel> {
       Container():
       FloatingActionButton(
         onPressed: viewModel.logWorkout,
+        child: Icon(Icons.add, color: kcPrimaryColor,),
       ),
     );
   }

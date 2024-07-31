@@ -22,12 +22,12 @@ class OnboardingViewModel extends BaseViewModel {
         onboardingImgUrl: "assets/images/onboarding_img1.png",
         onboardingTitle: "Access equipment guide",
         onboardingDescription:
-            "View detailed instructions and videos for each equipment."),
+        "View detailed instructions and videos for each equipment."),
     const OnboardingModel(
         onboardingImgUrl: "assets/images/onboarding_img3.png",
         onboardingTitle: "Track Your Progress",
         onboardingDescription:
-            "Keep a detailed log of your exercises and monitor your improvements over time.")
+        "Keep a detailed log of your exercises and monitor your improvements over time.")
   ];
 
   void changeNote(int index) {
@@ -43,16 +43,14 @@ class OnboardingViewModel extends BaseViewModel {
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeInOut,
       );
+      notifyListeners();
     } else {
-      _navigationService.navigateTo(Routes.nfcView);
       _appService.onItemTapped(1);
       _navigationService.replaceWith(Routes.dashboardView);
     }
-    notifyListeners();
   }
 
   void skip() {
-    _navigationService.navigateTo(Routes.nfcView);
     _appService.onItemTapped(1);
     _navigationService.replaceWith(Routes.dashboardView);
   }

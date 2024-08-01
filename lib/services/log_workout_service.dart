@@ -8,8 +8,16 @@ class LogWorkoutService with ListenableServiceMixin {
   final logger = getLogger("LogWorkoutService");
 
   void saveLogWorkout(LogWorkoutModel logWorkout) {
-    _logWorkouts.add(logWorkout);
+    if (_selectedWorkout != null) {
+      // Update existing workout
+      int index = _logWorkouts.indexOf(_selectedWorkout!);
+      _logWorkouts[index] = logWorkout;
+    } else {
+      // Add new workout
+      _logWorkouts.add(logWorkout);
+    }
     logger.d(_logWorkouts.map((log) => log.toString()).toList());
+    _selectedWorkout = null; // Clear selected workout after saving
     notifyListeners();
   }
 

@@ -133,6 +133,11 @@ class LogWorkoutView extends StackedView<LogWorkoutViewModel> {
       ),
     );
   }
+  @override
+  void onViewModelReady(LogWorkoutViewModel viewModel) {
+    viewModel.initialize();
+    super.onViewModelReady(viewModel);
+  }
 
   @override
   LogWorkoutViewModel viewModelBuilder(BuildContext context) =>

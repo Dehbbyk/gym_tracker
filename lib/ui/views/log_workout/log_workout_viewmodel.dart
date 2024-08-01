@@ -16,8 +16,7 @@ class LogWorkoutViewModel extends BaseViewModel {
   final logger = getLogger("LogWorkoutViewModel");
 
   final TextEditingController durationController = TextEditingController();
-  final TextEditingController typeOfExerciseController =
-      TextEditingController();
+  final TextEditingController typeOfExerciseController = TextEditingController();
   final TextEditingController weightController = TextEditingController();
   final TextEditingController setController = TextEditingController();
   final TextEditingController dateController = TextEditingController();
@@ -77,7 +76,7 @@ class LogWorkoutViewModel extends BaseViewModel {
 
     if (pickedTime != null) {
       durationController.text =
-          '${pickedTime.hour} hours ${pickedTime.minute} minutes';
+      '${pickedTime.hour} hours ${pickedTime.minute} minutes';
       notifyListeners();
     }
   }
@@ -104,6 +103,20 @@ class LogWorkoutViewModel extends BaseViewModel {
     _dialogService.showCustomDialog(
       variant: DialogType.logWorkoutSaved,
     );
+  }
+
+  Future<void> initialize() async {
+    setBusy(true);
+    final workOut = _logWorkoutService.getSelectedWorkout();
+    if (workOut != null) {
+      setController.text = workOut.set;
+      durationController.text = workOut.duration;
+      weightController.text = workOut.weight ?? '';
+      dateController.text = workOut.date.toIso8601String().split('T').first;
+      selectedExercise = workOut.typeOfExercise;
+      notifyListeners();
+    }
+    setBusy(false);
   }
 
   @override

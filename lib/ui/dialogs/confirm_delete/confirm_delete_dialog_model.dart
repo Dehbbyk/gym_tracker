@@ -11,10 +11,10 @@ class ConfirmDeleteDialogModel extends BaseViewModel {
   final NavigationService _navigationService = locator<NavigationService>();
   final LogWorkoutService _workoutService = locator<LogWorkoutService>();
 
-  void deleteWorkout(LogWorkoutModel workout) {
-    _workoutService.deleteWorkout(workout);
-    navigateToLoggedWorkouts();
-  }
+  // void deleteWorkout(LogWorkoutModel workout) {
+  //   _workoutService.deleteWorkout(workout);
+  //   navigateToLoggedWorkouts();
+  // }
 
   void navigateToLoggedWorkouts() {
     _appService.onItemTapped(3);

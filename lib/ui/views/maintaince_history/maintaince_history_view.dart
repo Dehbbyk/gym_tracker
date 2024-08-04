@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:gym_tracker/ui/widgets/custom_button.dart';
 import 'package:stacked/stacked.dart';
 
 import 'maintaince_history_viewmodel.dart';
@@ -57,6 +57,7 @@ class MaintainceHistoryView extends StackedView<MaintainceHistoryViewModel> {
       ),
       backgroundColor: Theme.of(context).colorScheme.background,
       body: SingleChildScrollView(
+        padding: const EdgeInsets.all(16),
         child: Column(
           children: [
             Container(
@@ -336,59 +337,8 @@ class MaintainceHistoryView extends StackedView<MaintainceHistoryViewModel> {
                 ],
               ),
             ),
-            MaterialButton(
-              onPressed: () {},
-              color: const Color(0xffF97316),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(6),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.only(left: 95.0, right: 100.0),
-                child: Text(
-                  'Download Report',
-                  style: GoogleFonts.inter(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                    color: const Color(0xffFFFFFF),
-                  ),
-                ),
-              ),
-            )
+             CustomButton(buttonText: "Return to Equipment", onPressed: viewModel.navigateToEquipment,)
           ],
-        ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              'assets/icons/Barbell.svg',
-            ),
-            label: 'Workout',
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              'assets/icons/Scan.svg',
-            ),
-            label: 'Scan NFC',
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              'assets/icons/ChartLineUp.svg',
-            ),
-            label: 'Report',
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              'assets/icons/ClockCounterClockwise.svg',
-            ),
-            label: 'History',
-          ),
-        ],
-        selectedItemColor: const Color(0xff000000),
-        selectedLabelStyle: GoogleFonts.inter(
-          fontSize: 12,
-          fontWeight: FontWeight.w400,
-          color: const Color(0xffF97316),
         ),
       ),
     );

@@ -11,13 +11,15 @@ class OnboardingSlide extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Image(
-          image: AssetImage(model.onboardingImgUrl),
+        SizedBox(
           height: 410,
+          width: double.infinity,
+          child: Image(
+            image: AssetImage(model.onboardingImgUrl),
+            fit: BoxFit.cover,
+          ),
         ),
-        const SizedBox(
-          height: 80,
-        ),
+        const SizedBox(height: 80),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24.0),
           child: Text(
@@ -37,7 +39,6 @@ class OnboardingSlide extends StatelessWidget {
             style: const TextStyle(
                 fontWeight: FontWeight.w400, fontSize: 18, color: kcTextColor2),
             textAlign: TextAlign.center,
-
           ),
         ),
       ],

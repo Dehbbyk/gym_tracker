@@ -41,7 +41,8 @@ class NfcService with ListenableServiceMixin {
         'ndef': tag.data['ndef']
       };
 
-      if (nfcData.containsKey('ndef')) {
+      if (nfcData.containsKey('ndef') && nfcData['ndef'] != null) {
+        log("nfcData: $nfcData");
         List<int> payload =
             nfcData['ndef']['cachedMessage']?['records']?[0]['payload'];
         String decodedText =
@@ -75,7 +76,7 @@ class NfcService with ListenableServiceMixin {
             onDiscovered: (NfcTag nfcTag) async {
           if (nfcOperation == NFCOperation.read) {
             await _readFromTag(tag: nfcTag);
-            _message = "Card detected";
+            // _message = "Card detected";
           } else if (nfcOperation == NFCOperation.write && data != null) {
             await _writeToTag(nfcTag: nfcTag, data: data);
           }

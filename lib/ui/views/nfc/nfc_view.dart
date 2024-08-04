@@ -9,18 +9,18 @@ class NfcView extends StackedView<NfcViewModel> {
 
   @override
   Widget builder(
-      BuildContext context,
-      NfcViewModel viewModel,
-      Widget? child,
-      ) {
+    BuildContext context,
+    NfcViewModel viewModel,
+    Widget? child,
+  ) {
     // Example JSON data to write to the NFC tag
     Map<String, String> jsonData = {
       "equipmentName": "Treadmill Adult Tool",
       "description": "A treadmill is a stationary exercise machine...",
       "exerciseInstructions":
-      "Preparation: Ensure the treadmill is properly set up...",
+          "Preparation: Ensure the treadmill is properly set up...",
       "safetyTips":
-      "Safety Clip: Always attach the safety clip to your clothing...",
+          "Safety Clip: Always attach the safety clip to your clothing...",
       "watchVideo": "a youtube gym link",
       "studySlide": "a blog or sth."
     };
@@ -43,7 +43,7 @@ class NfcView extends StackedView<NfcViewModel> {
               ),
               if (viewModel.isProcessing) CircularProgressIndicator(),
               const Text(
-                "Hold the Phone's NFC Area close to the Tag",
+                "Hold the Phone’s NFC Area close to the Tag",
                 style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
               ),
               const SizedBox(height: 8),
@@ -80,8 +80,8 @@ class NfcView extends StackedView<NfcViewModel> {
                       ),
                     if (viewModel.readJsonData.isNotEmpty)
                       CustomButton(
-                          buttonText: "View Equipment Details",
-                          onPressed:
+                        buttonText: "View Equipment Details",
+                        onPressed:
                           viewModel.equipmentDetailsNavigation // Navigate to equipment details view
                       ),
                   ],

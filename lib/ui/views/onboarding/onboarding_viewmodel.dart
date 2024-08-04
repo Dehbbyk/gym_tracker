@@ -43,16 +43,14 @@ class OnboardingViewModel extends BaseViewModel {
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeInOut,
       );
+      notifyListeners();
     } else {
-      _navigationService.navigateTo(Routes.nfcView);
       _appService.onItemTapped(1);
       _navigationService.replaceWith(Routes.dashboardView);
     }
-    notifyListeners();
   }
 
   void skip() {
-    _navigationService.navigateTo(Routes.nfcView);
     _appService.onItemTapped(1);
     _navigationService.replaceWith(Routes.dashboardView);
   }

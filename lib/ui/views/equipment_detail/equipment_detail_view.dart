@@ -12,10 +12,10 @@ class EquipmentDetailView extends StackedView<EquipmentDetailViewModel> {
 
   @override
   Widget builder(
-      BuildContext context,
-      EquipmentDetailViewModel viewModel,
-      Widget? child,
-      ) {
+    BuildContext context,
+    EquipmentDetailViewModel viewModel,
+    Widget? child,
+  ) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
@@ -58,7 +58,7 @@ class EquipmentDetailView extends StackedView<EquipmentDetailViewModel> {
                       slideTransform: const ZoomOutSlideTransform(),
                       children: List.generate(
                         viewModel.onboardingNotes.length,
-                            (index) => Image.asset(
+                        (index) => Image.asset(
                           viewModel.onboardingNotes[index],
                           width: double.infinity,
                           fit: BoxFit.cover,
@@ -92,7 +92,8 @@ class EquipmentDetailView extends StackedView<EquipmentDetailViewModel> {
                 children: [
                   Text(
                     viewModel.equipmentData["equipment"]['name'],
-                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                    style: const TextStyle(
+                        fontSize: 16, fontWeight: FontWeight.w600),
                   ),
                   const Spacer(),
                   SizedBox(
@@ -128,16 +129,14 @@ class EquipmentDetailView extends StackedView<EquipmentDetailViewModel> {
               const SizedBox(height: 14),
               ExpansionTileWidget(
                 title: "Usage Instructions",
-                content: viewModel.equipmentData['instructions']
-                    .entries
+                content: viewModel.equipmentData['instructions'].entries
                     .map<Widget>((entry) => Text("• ${entry.value}"))
                     .toList(),
               ),
               const SizedBox(height: 14),
               ExpansionTileWidget(
                 title: "Safety Tips",
-                content: viewModel.equipmentData['safetyTips']
-                    .entries
+                content: viewModel.equipmentData['safetyTips'].entries
                     .map<Widget>((entry) => Text("• ${entry.value}"))
                     .toList(),
               ),
@@ -200,8 +199,8 @@ class EquipmentDetailView extends StackedView<EquipmentDetailViewModel> {
 
   @override
   EquipmentDetailViewModel viewModelBuilder(
-      BuildContext context,
-      ) =>
+    BuildContext context,
+  ) =>
       EquipmentDetailViewModel();
 }
 

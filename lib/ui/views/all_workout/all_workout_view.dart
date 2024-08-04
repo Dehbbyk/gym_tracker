@@ -84,18 +84,31 @@ class AllWorkoutView extends StackedView<AllWorkoutViewModel> {
                 : ListView.builder(
                     itemCount: viewModel.workOutLogs.length,
                     itemBuilder: (BuildContext context, int index) {
-                      return WorkoutCard(
-                        logWorkOutModel: viewModel.workOutLogs[index],
-                        onView: () => viewModel.equipmentDetailsNavigation(),
+                      final workout = viewModel.workOutLogs[index];
+                      return GestureDetector(
+                        onTap: () =>
+                            viewModel.workOutDetailsNavigation(workout),
+                        child: WorkoutCard(
+                          logWorkOutModel: workout,
+                          onView: () =>
+                              viewModel.workOutDetailsNavigation(workout),
+                        ),
                       );
                     }),
           ),
-        ));
+        ),
+
+      floatingActionButton:
+      viewModel.workOutLogs.isEmpty ?
+      Container():
+      FloatingActionButton(
+        onPressed: viewModel.logWorkout,
+        child: Icon(Icons.add, color: kcPrimaryColor,),
+      ),
+    );
   }
 
   @override
-  AllWorkoutViewModel viewModelBuilder(
-    BuildContext context,
-  ) =>
+  AllWorkoutViewModel viewModelBuilder(BuildContext context) =>
       AllWorkoutViewModel();
 }

@@ -26,8 +26,8 @@ class IssueReportedDialog extends StackedView<IssueReportedDialogModel> {
     Widget? child,
   ) {
     return Dialog(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-      backgroundColor: Colors.white,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        backgroundColor: Colors.white,
         child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
             child: Column(mainAxisSize: MainAxisSize.min, children: [
@@ -71,8 +71,7 @@ class IssueReportedDialog extends StackedView<IssueReportedDialogModel> {
                   )
                 ],
               ),
-            ]))
-    );
+            ])));
   }
 
   @override

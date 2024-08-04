@@ -105,6 +105,20 @@ class LogWorkoutViewModel extends BaseViewModel {
     );
   }
 
+  Future<void> initialize() async {
+    setBusy(true);
+    final workOut = _logWorkoutService.getSelectedWorkout();
+    if (workOut != null) {
+      setController.text = workOut.set;
+      durationController.text = workOut.duration;
+      weightController.text = workOut.weight ?? '';
+      dateController.text = workOut.date.toIso8601String().split('T').first;
+      selectedExercise = workOut.typeOfExercise;
+      notifyListeners();
+    }
+    setBusy(false);
+  }
+
   @override
   void dispose() {
     durationController.dispose();

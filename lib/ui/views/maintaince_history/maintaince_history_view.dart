@@ -337,7 +337,10 @@ class MaintainceHistoryView extends StackedView<MaintainceHistoryViewModel> {
                 ],
               ),
             ),
-             CustomButton(buttonText: "Return to Equipment", onPressed: viewModel.navigateToEquipment,)
+            CustomButton(
+              buttonText: "Return to Equipment",
+              onPressed: viewModel.navigateToEquipment,
+            )
           ],
         ),
       ),

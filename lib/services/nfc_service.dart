@@ -71,9 +71,11 @@ class NfcService with ListenableServiceMixin {
             nfcOperation == NFCOperation.read ? "Scanning" : "Writing to Tag";
         notifyListeners();
 
-        NfcManager.instance.startSession(onDiscovered: (NfcTag nfcTag) async {
+        await NfcManager.instance.startSession(
+            onDiscovered: (NfcTag nfcTag) async {
           if (nfcOperation == NFCOperation.read) {
             await _readFromTag(tag: nfcTag);
+            _message = "Card detected";
           } else if (nfcOperation == NFCOperation.write && data != null) {
             await _writeToTag(nfcTag: nfcTag, data: data);
           }

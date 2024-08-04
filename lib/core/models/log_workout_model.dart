@@ -14,18 +14,18 @@ class LogWorkoutModel {
   });
 
   Map<String, dynamic> toJson() => {
-        'duration': duration,
-        'typeOfExercise': typeOfExercise,
-        'weight': weight,
-        'set': set,
-        'date': date.toIso8601String(),
-      };
+    'duration': duration,
+    'typeOfExercise': typeOfExercise,
+    'weight': weight,
+    'set': set,
+    'date': date.toIso8601String(),
+  };
 
   static LogWorkoutModel fromJson(Map<String, dynamic> json) => LogWorkoutModel(
-        duration: json['duration'],
-        typeOfExercise: json['typeOfExercise'],
-        weight: json['weight'],
-        set: json['set'],
-        date: DateTime.parse(json['date']),
-      );
+    duration: json['duration'],
+    typeOfExercise: json['typeOfExercise'],
+    weight: json['weight'],
+    set: json['set'],
+    date: DateTime.parse(json['date']),
+  );
 }

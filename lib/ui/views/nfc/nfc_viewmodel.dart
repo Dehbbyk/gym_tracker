@@ -10,6 +10,7 @@ class NfcViewModel extends ReactiveViewModel {
 
   bool get isProcessing => _nfcService.isProcessing;
   String get message => _nfcService.message;
+  Map<String, dynamic> get readJsonData => _nfcService.jsonData;
 
   Future<void> startNFCOperation(
       NFCOperation operation, Map<String, String>? data) async {

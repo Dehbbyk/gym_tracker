@@ -11,9 +11,11 @@ enum NFCOperation { read, write }
 class NfcService with ListenableServiceMixin {
   bool _isProcessing = false;
   String _message = "";
+  Map<String, dynamic> _jsonDataFromReadTag = {};
 
   bool get isProcessing => _isProcessing;
   String get message => _message;
+  Map<String, dynamic> get jsonData => _jsonDataFromReadTag;
 
   NdefMessage _createNdefMessage({required Map<String, String> data}) {
     String jsonData = json.encode(data);
@@ -44,10 +46,11 @@ class NfcService with ListenableServiceMixin {
       log("nfcData: $nfcData");
       if (nfcData.containsKey('ndef') && nfcData['ndef'] != null && nfcData['ndef'] ) {
         List<int> payload =
-            nfcData['ndef']['cachedMessage']?['records']?[0]['payload'] ?? [];
+        nfcData['ndef']['cachedMessage']?['records']?[0]['payload'];
         String decodedText =
-            utf8.decode(payload.skip(3).toList()); // Skip the language code
+        utf8.decode(payload.skip(3).toList()); // Skip the language code
         Map<String, dynamic> jsonData = json.decode(decodedText);
+        _jsonDataFromReadTag = jsonData;
         _message = jsonData.toString();
       } else {
         _message = "No Data Found";
@@ -69,21 +72,21 @@ class NfcService with ListenableServiceMixin {
       log("error: ${isAvail}");
       if (isAvail) {
         _message =
-            nfcOperation == NFCOperation.read ? "Scanning" : "Writing to Tag";
+        nfcOperation == NFCOperation.read ? "Scanning" : "Writing to Tag";
         notifyListeners();
 
         await NfcManager.instance.startSession(
             onDiscovered: (NfcTag nfcTag) async {
-          if (nfcOperation == NFCOperation.read) {
-            await _readFromTag(tag: nfcTag);
-            // _message = "Card detected";
-          } else if (nfcOperation == NFCOperation.write && data != null) {
-            await _writeToTag(nfcTag: nfcTag, data: data);
-          }
-          _isProcessing = false;
-          notifyListeners();
-          await NfcManager.instance.stopSession();
-        }, onError: (e) async {
+              if (nfcOperation == NFCOperation.read) {
+                await _readFromTag(tag: nfcTag);
+                // _message = "Card detected";
+              } else if (nfcOperation == NFCOperation.write && data != null) {
+                await _writeToTag(nfcTag: nfcTag, data: data);
+              }
+              _isProcessing = false;
+              notifyListeners();
+              await NfcManager.instance.stopSession();
+            }, onError: (e) async {
           _isProcessing = false;
           _message = e.message;
           locator<DialogService>().showDialog(
@@ -110,3 +113,9 @@ class NfcService with ListenableServiceMixin {
     }
   }
 }
+
+
+
+
+
+

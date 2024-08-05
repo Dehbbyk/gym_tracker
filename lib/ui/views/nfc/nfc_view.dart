@@ -78,12 +78,11 @@ class NfcView extends StackedView<NfcViewModel> {
                         "Your exercise equipment data has been written successfully.",
                         textAlign: TextAlign.center,
                       ),
-                    if (viewModel.message == "DONE")
+                    if (viewModel.readJsonData.isNotEmpty)
                       CustomButton(
                         buttonText: "View Equipment Details",
-                        onPressed: () {
-                          // Navigate to equipment details view
-                        },
+                        onPressed:
+                          viewModel.equipmentDetailsNavigation // Navigate to equipment details view
                       ),
                   ],
                 ),

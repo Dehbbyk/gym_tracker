@@ -55,7 +55,7 @@ class NfcView extends StackedView<NfcViewModel> {
               CustomButton(
                 buttonText: "Scan",
                 onPressed: () =>
-                    viewModel.startNFCOperation(NFCOperation.read, null),
+                    viewModel.startNFCOperation(NFCOperation.read, {}),
               ),
               CustomButton(
                 buttonText: "Write",

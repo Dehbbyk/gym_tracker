@@ -41,10 +41,10 @@ class NfcService with ListenableServiceMixin {
         'ndef': tag.data['ndef']
       };
 
-      if (nfcData.containsKey('ndef') && nfcData['ndef'] != null) {
-        log("nfcData: $nfcData");
+      log("nfcData: $nfcData");
+      if (nfcData.containsKey('ndef') && nfcData['ndef'] != null && nfcData['ndef'] ) {
         List<int> payload =
-            nfcData['ndef']['cachedMessage']?['records']?[0]['payload'];
+            nfcData['ndef']['cachedMessage']?['records']?[0]['payload'] ?? [];
         String decodedText =
             utf8.decode(payload.skip(3).toList()); // Skip the language code
         Map<String, dynamic> jsonData = json.decode(decodedText);
